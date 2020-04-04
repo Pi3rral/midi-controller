@@ -1,6 +1,6 @@
 # Arduino MIDI Foot Controller
 
-Simple MIDI foot controller made with an arduino.
+Simple MIDI foot controller made with an arduino and an external 3 buttons footswitch (type Digitech FS3X).
 
 ## Features
 
