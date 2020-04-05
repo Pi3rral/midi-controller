@@ -2,18 +2,20 @@
 #include "OLED.h"
 #include "MIDI.h"
 
-#define BUTTON1_PIN 2
-#define BUTTON2_PIN 3
+// FS Configuration
+#define FS_TIP_PIN  2
+#define FS_RING_PIN 3
 
 #define NO_BUTTON     0
 #define BUTTON_UP     1
 #define BUTTON_DOWN   2
 #define BUTTON_MODE   3
 
-
+// MIDI Configuration
 #define MIDI_CHANNEL 1
+#define MIDI_BAUD_RATE 31250
 
-
+// Global Variables
 OLED oled;
 uint8_t button_1_state = HIGH;
 uint8_t button_2_state = HIGH;
@@ -21,23 +23,22 @@ uint8_t current_program = 1;
 uint8_t next_program = 1;
 
 uint8_t read_button_fs3x() {
-    if (digitalRead(BUTTON1_PIN) == LOW) {
-        if (digitalRead(BUTTON2_PIN) == LOW) {
+    if (digitalRead(FS_TIP_PIN) == LOW) {
+        if (digitalRead(FS_RING_PIN) == LOW) {
             return BUTTON_UP;
         }
-        return BUTTON_DOWN;
-    } else if (digitalRead(BUTTON2_PIN) == LOW) {
         return BUTTON_MODE;
+    } else if (digitalRead(FS_RING_PIN) == LOW) {
+        return BUTTON_DOWN;
     }
     return NO_BUTTON;
 }
 
-
 void setup() {
     oled.init();
-    pinMode(BUTTON1_PIN, INPUT_PULLUP);
-    pinMode(BUTTON2_PIN, INPUT_PULLUP);
-    Serial.begin(9600);
+    pinMode(FS_TIP_PIN, INPUT_PULLUP);
+    pinMode(FS_RING_PIN, INPUT_PULLUP);
+    Serial.begin(MIDI_BAUD_RATE);
     oled.clearDisplay();
     oled.printProgramChange(current_program);
 }
@@ -78,13 +79,5 @@ void loop() {
         default:
             delay(100);
             break;
-    }
-    if (digitalRead(BUTTON1_PIN) == LOW) {
-        if (button_1_state == HIGH) {
-            button_1_state = LOW;
-            
-        }
-    } else if (button_1_state == LOW) {
-        button_1_state = HIGH;
     }
 }
