@@ -24,11 +24,13 @@ The controller is sending Program Change (PC) instructions on MIDI Channel 1.
 #### MODE Button
 
 Pressing MODE button is actually sending the Program Change (PC) to the MIDI output.
+It will display in big the PC number its sending, and remove the small one at the top right of the screen.
 Selecting the PC number is done by pressing UP and DOWN buttons.
 
 #### UP/DOWN Buttons
 
 Pressing UP or DOWN button will define which PC send when we will press the MODE button.
+OLED will display in big the next PC, while displaying the current PC in small at the top right of the screen. 
 
 WARNING: UP or DOWN will NOT send the PC instruction. It will just select it for pressing MODE.
 
