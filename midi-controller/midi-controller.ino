@@ -6,8 +6,9 @@
 #define BUTTON2_PIN 3
 
 OLED oled;
-int button1State;
-int button2State;
+int button1State = HIGH;
+int button2State = HIGH;
+int programNumber = 90;
 
 void oled_init() {
     oled.init();
@@ -20,23 +21,22 @@ void setup() {
     pinMode(BUTTON1_PIN, INPUT_PULLUP);
     pinMode(BUTTON2_PIN, INPUT_PULLUP);
     Serial.begin(9600);
-    button1State = HIGH;
-    button2State = HIGH;
 }
 
 void loop() {
     if (digitalRead(BUTTON1_PIN) == LOW) {
         if (button1State == HIGH) {
-            oled.clearDisplay();
-            oled.print("Button1 Pressed");
             button1State = LOW;
-        }
-    } else {
-        if (button1State == LOW) {
             oled.clearDisplay();
-            oled.print("Button1 NOT Pressed");
-            button1State = HIGH;
+            oled.printCurrent(programNumber);
+            ++programNumber;
+            if (programNumber == 100) {
+              programNumber = 1;
+            }
+            oled.printProgramChange(programNumber);
         }
+    } else if (button1State == LOW) {
+        button1State = HIGH;
     }
-//    delay(100);
+    delay(300);
 }

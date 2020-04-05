@@ -31,4 +31,27 @@ Selecting the PC number is done by pressing UP and DOWN buttons.
 Pressing UP or DOWN button will define which PC send when we will press the MODE button.
 
 WARNING: UP or DOWN will NOT send the PC instruction. It will just select it for pressing MODE.
- 
+
+
+## Building With `arduino-cli` To An Arduino Nano Clone
+
+https://arduino.github.io/arduino-cli/
+
+### Setup
+
+```bash
+brew install arduino-cli
+arduino-cli core install arduino:avr
+```
+
+### Build
+
+```bash
+arduino-cli compile --fqbn arduino:avr:pro  midi-controller
+```
+
+### Upload
+
+```bash
+arduino-cli upload -p /dev/cu.usbserial-1420 --fqbn arduino:avr:pro  midi-controller
+```

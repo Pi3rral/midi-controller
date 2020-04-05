@@ -9,8 +9,8 @@ public:
     void init();
     void clearDisplay();
     void print(const char* message);
-    void printBankNumber(int bank_number);
-    void printEditMode();
+    void printProgramChange(int program_change);
+    void printCurrent(int current);
 };
 
 #endif // OLED_H

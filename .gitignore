@@ -1,2 +1,7 @@
-# IDEA
+# IDEs
+.vscode/
 .idea/
+
+# arduino-cli object files
+*.elf
+*.hex

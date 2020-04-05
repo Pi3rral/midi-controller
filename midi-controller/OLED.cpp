@@ -38,10 +38,10 @@ void OLED::print(const char* message) {
     // delay(3000);
 }
 
-void OLED::printBankNumber(int bank_number) {
-    ssd1306_printFixedN(0, 0, String(bank_number).c_str(), STYLE_NORMAL, FONT_SIZE_8X);
+void OLED::printProgramChange(int program_change) {
+    ssd1306_printFixedN(0, 10, String(program_change).c_str(), STYLE_NORMAL, FONT_SIZE_8X);
 }
 
-void OLED::printEditMode() {
-    ssd1306_printFixedN(112, 0, "E", STYLE_BOLD, FONT_SIZE_2X);
+void OLED::printCurrent(int current) {
+    ssd1306_printFixedN(100, 0, String(current).c_str(), STYLE_NORMAL, FONT_SIZE_2X);
 }
