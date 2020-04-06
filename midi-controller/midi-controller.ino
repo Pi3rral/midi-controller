@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "OLED.h"
-#include "MIDI.h"
+#include "MIDIController.h"
 
 // FS Configuration
 #define FS_TIP_PIN  2
@@ -13,10 +13,10 @@
 
 // MIDI Configuration
 #define MIDI_CHANNEL 1
-#define MIDI_BAUD_RATE 31250
 
 // Global Variables
 OLED oled;
+MIDIController midi;
 uint8_t button_1_state = HIGH;
 uint8_t button_2_state = HIGH;
 uint8_t current_program = 1;
@@ -36,9 +36,10 @@ uint8_t read_button_fs3x() {
 
 void setup() {
     oled.init();
+    Serial.begin(MIDI_BAUD_RATE);
+    midi.init(&Serial);
     pinMode(FS_TIP_PIN, INPUT_PULLUP);
     pinMode(FS_RING_PIN, INPUT_PULLUP);
-    Serial.begin(MIDI_BAUD_RATE);
     oled.clearDisplay();
     oled.printProgramChange(current_program);
 }
@@ -72,7 +73,7 @@ void loop() {
             oled.clearDisplay();
             current_program = next_program;
             oled.printProgramChange(current_program);
-            sendMIDI(&Serial, PROGRAM_CHANGE, MIDI_CHANNEL, current_program);
+            midi.sendMIDI(PROGRAM_CHANGE, MIDI_CHANNEL, current_program);
             delay(300);
             break;
         }
