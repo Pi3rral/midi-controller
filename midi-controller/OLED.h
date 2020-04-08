@@ -7,6 +7,8 @@ class OLED {
 public:
     OLED();
     void init();
+    void displayOff();
+    void displayOn();
     void clearDisplay();
     void print(const char* message);
     void printProgramChange(int program_change);
