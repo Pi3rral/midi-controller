@@ -2,8 +2,9 @@
 
 MIDIController::MIDIController() {}
 
-void MIDIController::init(Stream* _stream) {
+void MIDIController::init(Stream* _stream, uint8_t _default_channel) {
     this->stream = _stream;
+    this->default_channel = _default_channel;
 }
 
 void MIDIController::sendMIDI(uint8_t messageType, uint8_t channel, uint8_t data1, uint8_t data2) {
@@ -20,4 +21,12 @@ void MIDIController::sendMIDI(uint8_t messageType, uint8_t channel, uint8_t data
     this->stream->write(statusByte); // Send over Serial
     this->stream->write(data1);
     this->stream->write(data2);
+}
+
+void MIDIController::sendProgramChange(uint8_t program_number, uint8_t channel) {
+    this->sendMIDI(PROGRAM_CHANGE, (channel == 0) ? this->default_channel : channel, program_number, 0);
+}
+
+void MIDIController::sendControlChange(uint8_t controller_number, uint8_t controller_value, uint8_t channel) {
+    this->sendMIDI(CONTROL_CHANGE, (channel == 0) ? this->default_channel : channel, controller_number, controller_value);
 }

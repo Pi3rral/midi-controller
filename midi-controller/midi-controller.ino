@@ -11,9 +11,6 @@
 #define BUTTON_DOWN   2
 #define BUTTON_MODE   3
 
-// MIDI Configuration
-#define MIDI_CHANNEL 1
-
 // Global Variables
 OLED oled;
 MIDIController midi;
@@ -73,7 +70,7 @@ void loop() {
             oled.clearDisplay();
             current_program = next_program;
             oled.printProgramChange(current_program);
-            midi.sendMIDI(PROGRAM_CHANGE, MIDI_CHANNEL, current_program);
+            midi.sendProgramChange(current_program);
             delay(300);
             break;
         }
