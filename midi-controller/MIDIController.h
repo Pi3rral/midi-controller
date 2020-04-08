@@ -15,6 +15,13 @@
 #define CHANNEL_PRESSURE 0xD0
 #define PITCH_BEND       0xE0
 
+typedef struct MIDIMessage {
+    uint8_t message_type;
+    uint8_t channel;
+    uint8_t data1;
+    uint8_t data2;
+};
+
 class MIDIController {
 protected:
     Stream* stream = nullptr;
@@ -23,7 +30,8 @@ protected:
 public:
     MIDIController();
     void init(Stream* _stream, uint8_t _default_channel = DEFAULT_CHANNEL);
-    void sendMIDI(uint8_t messageType, uint8_t channel, uint8_t data1, uint8_t data2);
+    void sendMIDIMessage(MIDIMessage message);
+    void sendMIDI(uint8_t message_type, uint8_t channel, uint8_t data1, uint8_t data2);
     void sendProgramChange(uint8_t program_number, uint8_t channel = 0);
     void sendControlChange(uint8_t controller_number, uint8_t controller_value, uint8_t channel = 0);
 };
