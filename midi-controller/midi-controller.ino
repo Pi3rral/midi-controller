@@ -11,7 +11,7 @@
 #define BUTTON_DOWN   2
 #define BUTTON_MODE   3
 
-#define BLINK_START   8
+#define BLINK_START   9
 #define BLINK_END    10
 
 // Global Variables
@@ -78,7 +78,6 @@ void loop() {
             current_program = next_program;
             oled.printProgramChange(current_program);
             midi.sendProgramChange(current_program);
-            oled.displayOn();
             blink_screen = false;
             delay(300);
             break;
@@ -91,9 +90,13 @@ void loop() {
         ++blink_count;
         if (blink_count > BLINK_END) {
             blink_count = 0;
-            oled.displayOn();
-        } else if (blink_count > BLINK_START) {
-            oled.displayOff();
+            oled.clearDisplay();
+            oled.printCurrent(current_program);
+            oled.printProgramChange(next_program);
+        } else if (blink_count == BLINK_START) {
+            oled.clearDisplay();
+            oled.printCurrent(next_program);
+            oled.printProgramChange(current_program);
         }
     }
 }
