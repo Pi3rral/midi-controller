@@ -11,6 +11,9 @@
 #define BUTTON_DOWN   2
 #define BUTTON_MODE   3
 
+#define BLINK_START   8
+#define BLINK_END    10
+
 // Global Variables
 OLED oled;
 MIDIController midi;
@@ -18,6 +21,8 @@ uint8_t button_1_state = HIGH;
 uint8_t button_2_state = HIGH;
 uint8_t current_program = 1;
 uint8_t next_program = 1;
+bool blink_screen = false;
+unsigned int blink_count = 0;
 
 uint8_t read_button_fs3x() {
     if (digitalRead(FS_TIP_PIN) == LOW) {
@@ -52,6 +57,7 @@ void loop() {
               next_program = 1;
             }
             oled.printProgramChange(next_program);
+            blink_screen = true;
             delay(300);
             break;
         }
@@ -63,6 +69,7 @@ void loop() {
               next_program = 99;
             }
             oled.printProgramChange(next_program);
+            blink_screen = true;
             delay(300);
             break;
         }
@@ -71,11 +78,22 @@ void loop() {
             current_program = next_program;
             oled.printProgramChange(current_program);
             midi.sendProgramChange(current_program);
+            oled.displayOn();
+            blink_screen = false;
             delay(300);
             break;
         }
         default:
             delay(100);
             break;
+    }
+    if (blink_screen) {
+        ++blink_count;
+        if (blink_count > BLINK_END) {
+            blink_count = 0;
+            oled.displayOn();
+        } else if (blink_count > BLINK_START) {
+            oled.displayOff();
+        }
     }
 }

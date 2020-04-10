@@ -54,6 +54,12 @@ arduino-cli compile --fqbn arduino:avr:pro  midi-controller
 
 ### Upload
 
+Find port where board is connected
+```bash
+arduino-cli board list
+```
+
+Upload
 ```bash
 arduino-cli upload -p /dev/cu.usbserial-1420 --fqbn arduino:avr:pro  midi-controller
 ```
