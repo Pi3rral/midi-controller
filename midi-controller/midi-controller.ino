@@ -11,6 +11,7 @@
 #define BUTTON_DOWN   2
 #define BUTTON_MODE   3
 
+#define BLINK_SCREEN  0
 #define BLINK_START   9
 #define BLINK_END    10
 
@@ -86,7 +87,7 @@ void loop() {
             delay(100);
             break;
     }
-    if (blink_screen) {
+    if (BLINK_SCREEN && blink_screen) {
         ++blink_count;
         if (blink_count > BLINK_END) {
             blink_count = 0;
