@@ -5,17 +5,30 @@
 #include "ssd1306.h"
 #include "nano_gfx.h"
 
+const char *menuItems[] =
+{
+    "MIDI Channel",
+    "MIDI Command",
+    "Command Value",
+    "Exit",
+};
+
 
 OLED::OLED() { 
     // empty
 }
 
-void OLED::init() {
+void OLED::init(bool is_sh1106) {
     ssd1306_setFixedFont(ssd1306xled_font6x8);
-    ssd1306_128x64_i2c_init();
+    if (is_sh1106) {
+        sh1106_128x64_i2c_init();
+    } else {
+        ssd1306_128x64_i2c_init();
+    }
     ssd1306_fillScreen(0x00);
     ssd1306_clearScreen();
     ssd1306_positiveMode();
+    ssd1306_createMenu(&menu, menuItems, sizeof(menuItems) / sizeof(char *) );
 }
 
 void OLED::clearDisplay() {
@@ -53,3 +66,22 @@ void OLED::printProgramChange(int program_change) {
 void OLED::printCurrent(int current) {
     ssd1306_printFixedN(100, 0, String(current).c_str(), STYLE_NORMAL, FONT_SIZE_2X);
 }
+
+void OLED::displayMenu() {
+    ssd1306_showMenu(&menu);
+}
+
+void OLED::menuUp() {
+    ssd1306_menuUp(&menu);
+    ssd1306_updateMenu(&menu);
+}
+
+void OLED::menuDown() {
+    ssd1306_menuDown(&menu);
+    ssd1306_updateMenu(&menu);
+}
+
+int OLED::getMenuSelection() {
+    return ssd1306_menuSelection(&menu);
+}
+

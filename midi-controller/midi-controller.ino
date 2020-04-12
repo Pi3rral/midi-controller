@@ -15,6 +15,8 @@
 #define BLINK_START   9
 #define BLINK_END    10
 
+#define OLED_SH1106   1
+
 // Global Variables
 OLED oled;
 MIDIController midi;
@@ -38,17 +40,16 @@ uint8_t read_button_fs3x() {
 }
 
 void setup() {
-    oled.init();
+    oled.init(OLED_SH1106);
     Serial.begin(MIDI_BAUD_RATE);
     midi.init(&Serial);
     pinMode(FS_TIP_PIN, INPUT_PULLUP);
     pinMode(FS_RING_PIN, INPUT_PULLUP);
     oled.clearDisplay();
-    oled.printProgramChange(current_program);
+//     oled.printProgramChange(current_program);
 }
 
-void loop() {
-    uint8_t button_pressed = read_button_fs3x();
+void read_normal_mode(uint8_t button_pressed) {
     switch(button_pressed) {
         case BUTTON_UP: {
             oled.clearDisplay();
@@ -100,4 +101,42 @@ void loop() {
             oled.printProgramChange(current_program);
         }
     }
+}
+
+void read_menu_mode(uint8_t button_pressed) {
+    oled.displayMenu();
+    switch(button_pressed) {
+        case BUTTON_UP: {
+            oled.menuUp();
+            delay(300);
+            break;
+        }
+        case BUTTON_DOWN: {
+            oled.menuDown();
+            delay(300);
+            break;
+        }
+        case BUTTON_MODE: {
+            int menu_selection = oled.getMenuSelection();
+            oled.clearDisplay();
+            oled.printProgramChange(menu_selection);
+            for (int i = 0; i < 4; ++i) {
+                oled.displayOff();
+                delay(100);
+                oled.displayOn();
+                delay(200);
+            }
+            oled.clearDisplay();
+            break;
+        }
+        default:
+            delay(100);
+            break;
+    }
+}
+
+void loop() {
+    uint8_t button_pressed = read_button_fs3x();
+    read_normal_mode(button_pressed);
+//     read_menu_mode(button_pressed);
 }
