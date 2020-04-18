@@ -5,14 +5,6 @@
 #include "ssd1306.h"
 #include "nano_gfx.h"
 
-const char *menuItems[] =
-{
-    "MIDI Channel",
-    "MIDI Command",
-    "Command Value",
-    "Exit",
-};
-
 
 OLED::OLED() { 
     // empty
@@ -26,9 +18,9 @@ void OLED::init(bool is_sh1106) {
         ssd1306_128x64_i2c_init();
     }
     ssd1306_fillScreen(0x00);
-    ssd1306_clearScreen();
     ssd1306_positiveMode();
-    ssd1306_createMenu(&menu, menuItems, sizeof(menuItems) / sizeof(char *) );
+    ssd1306_clearScreen();
+    ssd1306_createMenu(&menu, nullptr, 0);
 }
 
 void OLED::clearDisplay() {
@@ -67,7 +59,10 @@ void OLED::printCurrent(int current) {
     ssd1306_printFixedN(100, 0, String(current).c_str(), STYLE_NORMAL, FONT_SIZE_2X);
 }
 
-void OLED::displayMenu() {
+void OLED::displayMenu(const char** _menu_items) {
+    if (_menu_items != nullptr) {
+        ssd1306_createMenu(&menu, _menu_items, sizeof(_menu_items)/sizeof(char *));
+    }
     ssd1306_showMenu(&menu);
 }
 

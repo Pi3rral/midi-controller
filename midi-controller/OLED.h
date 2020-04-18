@@ -17,7 +17,7 @@ public:
     void printProgramChange(int program_change);
     void printCurrent(int current);
 
-    void displayMenu();
+    void displayMenu(const char** _menu_items = nullptr);
     void menuUp();
     void menuDown();
     int getMenuSelection();
