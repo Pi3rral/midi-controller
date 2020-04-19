@@ -15,12 +15,12 @@ Simple MIDI foot controller made with an arduino and an external 3 buttons foots
 
 ## Photos
 
-<img align="left" src="./doc/outside.jpg" alt="Outside" title="Outside" hspace="20"/>
-<img align="left" src="./doc/inside.jpg" alt="Inside" title="Inside" hspace="20"/>
+<img align="left" src="./doc/outside.jpg" alt="Outside" title="Outside" style="max-width: 45%" hspace="20"/>
+<img align="left" src="./doc/inside.jpg" alt="Inside" title="Inside" style="max-width: 45%" hspace="20"/>
 <br/>
-<img align="left" src="./doc/channel.jpg" alt="Channel" title="Channel" hspace="20"/>
-<img align="left" src="./doc/channel_select.jpg" alt="Channel Select" title="Channel Select" hspace="20"/>
-<img align="left" src="./doc/footswitch.jpg" alt="Footswitch" title="Footswitch" hspace="20"/>
+<img align="left" src="./doc/channel.jpg" alt="Channel" title="Channel" style="max-width: 30%" hspace="20"/>
+<img align="left" src="./doc/channel_select.jpg" alt="Channel Select" title="Channel Select" style="max-width: 30%" hspace="20"/>
+<img align="left" src="./doc/footswitch.jpg" alt="Footswitch" title="Footswitch" style="max-width: 30%" hspace="20"/>
 <br/>
 
 ## Usage
