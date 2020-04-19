@@ -15,8 +15,9 @@ Simple MIDI foot controller made with an arduino and an external 3 buttons foots
 
 ## Photos
 
-| ![outside](doc/outside.jpg) | ![inside](doc/inside.jpg) |
-| ![channel_select](doc/channel_select.jpg) | ![footswitch](doc/footswitch.jpg) |
+![outside](doc/outside.jpg) | ![inside](doc/inside.jpg)
+---------|--------
+![channel_select](doc/channel_select.jpg) | ![footswitch](doc/footswitch.jpg)
 
 ## Usage
 
