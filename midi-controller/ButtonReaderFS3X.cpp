@@ -26,8 +26,9 @@ void ButtonReaderFS3X::read() {
         update_button_state(BUTTON_DOWN, 1);
         update_button_state(BUTTON_UP, 0);
         update_button_state(BUTTON_MODE, 0);
+    } else {
+        update_button_state(BUTTON_MODE, 0);
+        update_button_state(BUTTON_DOWN, 0);
+        update_button_state(BUTTON_UP, 0);
     }
-    update_button_state(BUTTON_MODE, 0);
-    update_button_state(BUTTON_DOWN, 0);
-    update_button_state(BUTTON_UP, 0);
 }
