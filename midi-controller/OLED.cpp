@@ -59,9 +59,10 @@ void OLED::printCurrent(int current) {
     ssd1306_printFixedN(100, 0, String(current).c_str(), STYLE_NORMAL, FONT_SIZE_2X);
 }
 
-void OLED::displayMenu(const char** _menu_items) {
+void OLED::displayMenu(const char** _menu_items, int _nb_items) {
+//    ssd1306_fillScreen(0x00);
     if (_menu_items != nullptr) {
-        ssd1306_createMenu(&menu, _menu_items, sizeof(_menu_items)/sizeof(char *));
+        ssd1306_createMenu(&menu, _menu_items, _nb_items);
     }
     ssd1306_showMenu(&menu);
 }

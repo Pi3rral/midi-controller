@@ -18,14 +18,13 @@
 
 #define OLED_SH1106   1
 
-const char * settings_menu[] =
+const char *settings_menu[] =
 {
     "MIDI Channel",
-    "Blink Before Change",
-    "Save And Exit"
-    "Exit Without Save",
+    "Blink Before",
+    "Save And Exit",
+    "Exit No Save",
 };
-
 
 // Global Variables
 OLED oled;
@@ -49,31 +48,36 @@ bool read_simple_mode(uint8_t button_pressed) {
     byte b_state = fs3x.get_action_for_button(button_pressed);
     switch(button_pressed) {
         case BUTTON_UP: {
-            oled.clearDisplay();
-            oled.printCurrent(current_program);
-            ++next_program;
-            if (next_program == 100) {
-              next_program = 1;
+            if (b_state == button_state::pressed) {
+                oled.clearDisplay();
+                oled.printCurrent(current_program);
+                ++next_program;
+                if (next_program == 100) {
+                  next_program = 1;
+                }
+                oled.printProgramChange(next_program);
+                blink_screen = true;
             }
-            oled.printProgramChange(next_program);
-            blink_screen = true;
+//             else if (b_state == button_state::long_pressed || b_state == button_state::still_long_pressed)
             break;
         }
         case BUTTON_DOWN: {
-            oled.clearDisplay();
-            oled.printCurrent(current_program);
-            --next_program;
-            if (next_program == 0) {
-              next_program = 99;
+            if (b_state == button_state::pressed) {
+                oled.clearDisplay();
+                oled.printCurrent(current_program);
+                --next_program;
+                if (next_program == 0) {
+                  next_program = 99;
+                }
+                oled.printProgramChange(next_program);
+                blink_screen = true;
             }
-            oled.printProgramChange(next_program);
-            blink_screen = true;
             break;
         }
         case BUTTON_MODE: {
             if (b_state == button_state::long_pressed || b_state == button_state::still_long_pressed) {
                 return true;
-            } else {
+            } else if (b_state == button_state::pressed){
                 oled.clearDisplay();
                 current_program = next_program;
                 oled.printProgramChange(current_program);
@@ -102,15 +106,19 @@ bool read_simple_mode(uint8_t button_pressed) {
 }
 
 bool read_menu_mode(uint8_t button_pressed) {
-    oled.displayMenu();
+//     oled.displayMenu();
     byte b_state = fs3x.get_action_for_button(button_pressed);
     switch(button_pressed) {
         case BUTTON_UP: {
-            oled.menuUp();
+            if (b_state == button_state::pressed) {
+                oled.menuUp();
+            }
             break;
         }
         case BUTTON_DOWN: {
-            oled.menuDown();
+            if (b_state == button_state::pressed) {
+                oled.menuDown();
+            }
             break;
         }
         case BUTTON_MODE: {
@@ -136,7 +144,7 @@ void loop() {
         if (read_simple_mode(button_pressed)) {
             simple_mode = false;
             oled.clearDisplay();
-            oled.displayMenu(settings_menu);
+            oled.displayMenu(settings_menu, 4);
         }
     } else {
        if (read_menu_mode(button_pressed)) {
