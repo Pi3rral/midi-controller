@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "OLED.h"
-#include "MIDIController.h"
+#include "MIDI.h"
 #include "ButtonReaderFS3X.h"
 
 // FS3X Configuration
@@ -28,7 +28,7 @@ const char *settings_menu[] =
 
 // Global Variables
 OLED oled;
-MIDIController midi;
+MIDI midi;
 ButtonReaderFS3X fs3x(FS_TIP_PIN, FS_RING_PIN);
 uint8_t current_program = 1;
 uint8_t next_program = 1;

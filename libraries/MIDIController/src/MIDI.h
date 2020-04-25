@@ -1,5 +1,5 @@
-#ifndef __MIDICONTROLLER_H__
-#define __MIDICONTROLLER_H__
+#ifndef __MIDI_H__
+#define __MIDI_H__
 
 #include <stdint.h>
 #include <stream.h>
@@ -22,13 +22,13 @@ typedef struct MIDIMessage {
     uint8_t data2;
 };
 
-class MIDIController {
+class MIDI {
 protected:
     Stream* stream = nullptr;
     uint8_t default_channel = DEFAULT_CHANNEL;
 
 public:
-    MIDIController();
+    MIDI();
     void init(Stream* _stream, uint8_t _default_channel = DEFAULT_CHANNEL);
     void sendMIDIMessage(MIDIMessage message);
     void sendMIDI(uint8_t message_type, uint8_t channel, uint8_t data1, uint8_t data2);
@@ -37,4 +37,4 @@ public:
 };
 
 
-#endif // __MIDICONTROLLER_H__
+#endif // __MIDI_H__

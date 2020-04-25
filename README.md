@@ -49,13 +49,15 @@ https://arduino.github.io/arduino-cli/
 
 ```bash
 brew install arduino-cli
+arduino-cli core update-index
 arduino-cli core install arduino:avr
 ```
 
 ### Build
 
 ```bash
-arduino-cli compile --fqbn arduino:avr:pro  midi-controller
+arduino-cli compile --libraries libraries midi-controller
+arduino-cli compile --fqbn arduino:avr:pro --libraries libraries midi-controller
 ```
 
 ### Upload
