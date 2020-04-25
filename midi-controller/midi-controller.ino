@@ -2,33 +2,24 @@
 #include "OLED.h"
 #include "MIDI.h"
 #include "ButtonReaderFS3X.h"
+#include "Settings.h"
 
 // FS3X Configuration
 #define FS_TIP_PIN  2
 #define FS_RING_PIN 3
 
-// #define NO_BUTTON    -1
-// #define BUTTON_UP     1
-// #define BUTTON_DOWN   2
-// #define BUTTON_MODE   3
-
 #define BLINK_SCREEN  0
 #define BLINK_START   9
 #define BLINK_END    10
 
+// 1.3" screen use sh1106
+// 0.96" screen use ssd1306
 #define OLED_SH1106   1
-
-const char *settings_menu[] =
-{
-    "MIDI Channel",
-    "Blink Before",
-    "Save And Exit",
-    "Exit No Save",
-};
 
 // Global Variables
 OLED oled;
 MIDI midi;
+Settings settings;
 ButtonReaderFS3X fs3x(FS_TIP_PIN, FS_RING_PIN);
 uint8_t current_program = 1;
 uint8_t next_program = 1;
@@ -38,9 +29,10 @@ bool simple_mode = true;
 
 void setup() {
     Serial.begin(MIDI_BAUD_RATE);
-    midi.init(&Serial);
-    oled.init(OLED_SH1106);
+    midi.begin(&Serial);
+    oled.begin(OLED_SH1106);
     fs3x.init();
+    settings.begin(&oled, BUTTON_UP, BUTTON_DOWN, BUTTON_MODE);
     oled.printProgramChange(current_program);
 }
 
@@ -105,49 +97,17 @@ bool read_simple_mode(uint8_t button_pressed) {
     return false;
 }
 
-bool read_menu_mode(uint8_t button_pressed) {
-//     oled.displayMenu();
-    byte b_state = fs3x.get_action_for_button(button_pressed);
-    switch(button_pressed) {
-        case BUTTON_UP: {
-            if (b_state == button_state::pressed) {
-                oled.menuUp();
-            }
-            break;
-        }
-        case BUTTON_DOWN: {
-            if (b_state == button_state::pressed) {
-                oled.menuDown();
-            }
-            break;
-        }
-        case BUTTON_MODE: {
-            if (b_state == button_state::pressed) {
-                int menu_selection = oled.getMenuSelection();
-                switch(menu_selection) {
-                    case 3: {
-                        oled.clearDisplay();
-                        oled.printProgramChange(current_program);
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-    return false;
-}
-
 void loop() {
     fs3x.read();
     byte button_pressed = fs3x.get_actioned_button();
+    byte button_pressed_state = fs3x.get_action_for_button(button_pressed);
     if (simple_mode) {
         if (read_simple_mode(button_pressed)) {
             simple_mode = false;
-            oled.clearDisplay();
-            oled.displayMenu(settings_menu, 4);
+            settings.displayMenu();
         }
     } else {
-       if (read_menu_mode(button_pressed)) {
+       if (settings.read(button_pressed, button_pressed_state)) {
             simple_mode = true;
             oled.clearDisplay();
             oled.printProgramChange(current_program);

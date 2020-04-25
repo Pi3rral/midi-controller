@@ -29,7 +29,7 @@ protected:
 
 public:
     MIDI();
-    void init(Stream* _stream, uint8_t _default_channel = DEFAULT_CHANNEL);
+    void begin(Stream* _stream, uint8_t _default_channel = DEFAULT_CHANNEL);
     void sendMIDIMessage(MIDIMessage message);
     void sendMIDI(uint8_t message_type, uint8_t channel, uint8_t data1, uint8_t data2);
     void sendProgramChange(uint8_t program_number, uint8_t channel = 0);

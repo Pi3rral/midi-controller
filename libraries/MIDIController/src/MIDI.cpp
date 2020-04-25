@@ -2,7 +2,7 @@
 
 MIDI::MIDI() {}
 
-void MIDI::init(Stream* _stream, uint8_t _default_channel) {
+void MIDI::begin(Stream* _stream, uint8_t _default_channel) {
     this->stream = _stream;
     this->default_channel = _default_channel;
 }

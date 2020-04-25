@@ -10,7 +10,7 @@ OLED::OLED() {
     // empty
 }
 
-void OLED::init(bool is_sh1106) {
+void OLED::begin(bool is_sh1106) {
     ssd1306_setFixedFont(ssd1306xled_font6x8);
     if (is_sh1106) {
         sh1106_128x64_i2c_init();

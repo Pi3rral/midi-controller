@@ -9,7 +9,7 @@ private:
 
 public:
     OLED();
-    void init(bool is_sh1106 = false);
+    void begin(bool is_sh1106 = false);
     void displayOff();
     void displayOn();
     void clearDisplay();
