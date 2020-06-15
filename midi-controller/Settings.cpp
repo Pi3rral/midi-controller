@@ -34,6 +34,9 @@ void Settings::begin(OLED* _oled, uint8_t _button_up, uint8_t _button_down, uint
     this->current_midi_channel = this->readMidiChannel();
     this->current_blink_screen = this->readBlinkScreen();
     this->current_direct_send = this->readDirectSend();
+    if (this->current_midi_channel > 15 || this->current_midi_channel < 0) {
+        this->current_midi_channel = 0;
+    }
 }
 
 byte Settings::readMidiChannel() {
@@ -60,7 +63,10 @@ byte Settings::getDirectSend() {
     return this->current_direct_send;
 }
 
-void Settings::displayMenu() {
+void Settings::displayMenu(bool force_main) {
+    if (force_main) {
+        this->current_menu = MAIN_MENU;
+    }
     switch (this->current_menu) {
         case MAIN_MENU: {
             this->displayMainMenu();
@@ -154,6 +160,21 @@ bool Settings::readMain(uint8_t button_pressed, uint8_t state) {
     } else if (button_pressed == this->button_select) {
         if (state == button_state::pressed) {
             switch(this->oled->getMenuSelection()) {
+                case 0: {
+                    this->current_menu = MIDI_CHANNEL_MENU;
+                    this->displayMidiMenu();
+                    break;
+                }
+                case 1: {
+                    this->current_menu = BLINK_MENU;
+                    this->displayBlinkMenu();
+                    break;
+                }
+                case 2: {
+                    this->current_menu = DIRECT_SEND_MENU;
+                    this->displayDirectMenu();
+                    break;
+                }
                 case 3: {
                     return true;
                 }
@@ -170,6 +191,7 @@ bool Settings::readMidi(uint8_t button_pressed, uint8_t state) {
             if (this->current_midi_channel >= 16) {
                 this->current_midi_channel = 0;
             }
+            this->displayMidiMenu();
         }
     } else if (button_pressed == this->button_down) {
         if (state == button_state::pressed) {
@@ -177,6 +199,7 @@ bool Settings::readMidi(uint8_t button_pressed, uint8_t state) {
             if (this->current_midi_channel <= 0) {
                 this->current_midi_channel = 15;
             }
+            this->displayMidiMenu();
         }
     } else if (button_pressed == this->button_select) {
         if (state == button_state::pressed) {
@@ -184,7 +207,6 @@ bool Settings::readMidi(uint8_t button_pressed, uint8_t state) {
             return true;
         }
     }
-    this->displayMidiMenu();
     return false;
 }
 
@@ -194,13 +216,13 @@ bool Settings::readBlink(uint8_t button_pressed, uint8_t state) {
         if (state == button_state::pressed) {
             this->current_blink_screen = !this->current_blink_screen;
         }
+        this->displayBlinkMenu();
     } else if (button_pressed == this->button_select) {
         if (state == button_state::pressed) {
             this->saveBlinkScreen(this->current_blink_screen);
             return true;
         }
     }
-    this->displayBlinkMenu();
     return false;
 }
 
@@ -210,12 +232,12 @@ bool Settings::readDirect(uint8_t button_pressed, uint8_t state) {
         if (state == button_state::pressed) {
             this->current_direct_send = !this->current_direct_send;
         }
+        this->displayDirectMenu();
     } else if (button_pressed == this->button_select) {
         if (state == button_state::pressed) {
             this->saveDirectSend(this->current_direct_send);
             return true;
         }
     }
-    this->displayDirectMenu();
     return false;
 }

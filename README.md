@@ -57,8 +57,8 @@ A long press onto the MODE button will display the settings menu. Navigate with 
 
 Available settings are the following:
 - MIDI Channel: select the MIDI channel for the controller. Only one channel is available for all PC messages.
-- Blink Before Change: When not in `Direct Mode`, blink screens until MODE is pressed and PC message is sent.
-- Direct Mode: In this mode, send PC message as soon as UP or DOWN button is pressed. Do not wait MODE press to actually send MIDI message. 
+- Blink Before Change: (default `Yes`) When not in `Direct Mode`, blink screens until MODE is pressed and PC message is sent.
+- Direct Mode: (Default `No`) In this mode, send PC message as soon as UP or DOWN button is pressed. Do not wait MODE press to actually send MIDI message. 
 
 
 ## Building With `arduino-cli` To An Arduino Nano Clone

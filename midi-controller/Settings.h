@@ -49,7 +49,7 @@ public:
     byte getBlinkScreen();
     byte getDirectSend();
 
-    void displayMenu();
+    void displayMenu(bool force_main = false);
     bool read(uint8_t button_pressed, uint8_t button_state);
 };
 

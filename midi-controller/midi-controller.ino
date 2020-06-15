@@ -106,7 +106,7 @@ void loop() {
     if (simple_mode) {
         if (read_simple_mode(button_pressed)) {
             simple_mode = false;
-            settings.displayMenu();
+            settings.displayMenu(true);
         }
     } else {
        if (settings.read(button_pressed, button_pressed_state)) {
