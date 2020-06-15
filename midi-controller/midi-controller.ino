@@ -8,7 +8,6 @@
 #define FS_TIP_PIN  2
 #define FS_RING_PIN 3
 
-#define BLINK_SCREEN  0
 #define BLINK_START   9
 #define BLINK_END    10
 
@@ -49,8 +48,10 @@ bool read_simple_mode(uint8_t button_pressed) {
                 }
                 oled.printProgramChange(next_program);
                 blink_screen = true;
+                if (settings.getDirectSend()) {
+                    midi.sendProgramChange(current_program, settings.getMidiChannel());
+                }
             }
-//             else if (b_state == button_state::long_pressed || b_state == button_state::still_long_pressed)
             break;
         }
         case BUTTON_DOWN: {
@@ -63,6 +64,9 @@ bool read_simple_mode(uint8_t button_pressed) {
                 }
                 oled.printProgramChange(next_program);
                 blink_screen = true;
+                if (settings.getDirectSend()) {
+                    midi.sendProgramChange(current_program, settings.getMidiChannel());
+                }
             }
             break;
         }
@@ -73,14 +77,13 @@ bool read_simple_mode(uint8_t button_pressed) {
                 oled.clearDisplay();
                 current_program = next_program;
                 oled.printProgramChange(current_program);
-                midi.sendProgramChange(current_program);
+                midi.sendProgramChange(current_program, settings.getMidiChannel());
                 blink_screen = false;
                 break;
             }
         }
     }
-#if BLINK_SCREEN
-    if (blink_screen) {
+    if (settings.getBlinkScreen() && blink_screen) {
         ++blink_count;
         if (blink_count > BLINK_END) {
             blink_count = 0;
@@ -93,7 +96,6 @@ bool read_simple_mode(uint8_t button_pressed) {
             oled.printProgramChange(current_program);
         }
     }
-#endif
     return false;
 }
 

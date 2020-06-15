@@ -23,22 +23,42 @@ Simple MIDI foot controller made with an arduino and an external 3 buttons foots
 
 ### MIDI Channel
 
-The controller is sending Program Change (PC) instructions on MIDI Channel 1.
+The controller is sending Program Change (PC) instructions on a MIDI Channel (default 1)
 
-### Footswitch
+### Main Usage Footswitch Controls
+
+By default, MIDI Channel is number 1. Every PC message will be send on this channel. This setting can be changed through the menu.
 
 #### MODE Button
 
 Pressing MODE button is actually sending the Program Change (PC) to the MIDI output.
-It will display in big the PC number its sending, and remove the small one at the top right of the screen.
-Selecting the PC number is done by pressing UP and DOWN buttons.
+
+If not in `Direct Mode` (default setting), It will display in big the PC number its sending, and remove the small one at the top right of the screen.
+
+In `Direct Mode`, it will re-send the the number displayed on the screen.
+
+Long Press will display the settings menu.
+
 
 #### UP/DOWN Buttons
 
-Pressing UP or DOWN button will define which PC send when we will press the MODE button.
+If not in `Direct Mode` (default setting), pressing UP or DOWN button will define which PC send when we will press the MODE button.
 OLED will display in big the next PC, while displaying the current PC in small at the top right of the screen. 
 
-WARNING: UP or DOWN will NOT send the PC instruction. It will just select it for pressing MODE.
+WARNING: When not in `Direct Mode` UP or DOWN will NOT send the PC instruction. It will just select it for pressing MODE.
+
+
+In `Direct Mode`, pressing UP or DOWN will up or down the Progam Change of 1 and actually send the message. It will not wait the MODE button press to send PC change.
+
+
+### Settings Menu
+
+A long press onto the MODE button will display the settings menu. Navigate with UP and DOWN button, and enter a setting by pressing MODE.
+
+Available settings are the following:
+- MIDI Channel: select the MIDI channel for the controller. Only one channel is available for all PC messages.
+- Blink Before Change: When not in `Direct Mode`, blink screens until MODE is pressed and PC message is sent.
+- Direct Mode: In this mode, send PC message as soon as UP or DOWN button is pressed. Do not wait MODE press to actually send MIDI message. 
 
 
 ## Building With `arduino-cli` To An Arduino Nano Clone
