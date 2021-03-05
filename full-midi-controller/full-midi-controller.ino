@@ -81,9 +81,15 @@ void setup()
 void loop()
 {
     uint8_t button_pressed = read_button();
+    lcd.setCursor(0, 4);
+    lcd.print(String("BUTTON ") + button_pressed + String(" "));
+
     switch (button_pressed)
     {
-
+    case NO_BUTTON:
+    {
+        break;
+    }
     case BUTTON_UP:
     {
         ++current_bank;
@@ -91,6 +97,7 @@ void loop()
         {
             current_bank = 1;
         }
+        lcd.setCursor(0, 1);
         lcd.print(String("BANK ") + current_bank + String(" "));
         delay(300);
         break;
@@ -102,6 +109,7 @@ void loop()
         {
             current_bank = NB_BANKS;
         }
+        lcd.setCursor(0, 1);
         lcd.print(String("BANK ") + current_bank + String(" "));
         delay(300);
         break;
@@ -112,6 +120,8 @@ void loop()
         break;
     }
     default:
+        lcd.setCursor(0, 0);
+        lcd.print(String("PC Value: ") + (current_bank - 1) * NB_BANKS + button_pressed);
         midi.sendProgramChange((current_bank - 1) * NB_BANKS + button_pressed);
         delay(300);
         break;
