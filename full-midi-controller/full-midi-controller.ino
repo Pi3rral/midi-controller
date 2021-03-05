@@ -16,14 +16,14 @@
 #define BUTTON_DOWN 8
 #define BUTTON_MODE 9
 
-#define NB_BUTTONS 6
+#define NB_BUTTONS 4
 #define NB_BANKS 10
 
 // Global Variables
 MIDIController midi;
 LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_COLUMNS, LCD_ROWS);
 
-int buttons[] = {4, 5, 6, 7, 8, 9}; // all button inputs to set global pullup
+int buttons[] = {4, 5, 6, 7, 8, 9};
 
 int current_bank = 1;
 
@@ -48,7 +48,7 @@ uint8_t read_button()
 {
     for (int i = 0; i < NB_BUTTONS; i++)
     {
-        if (digitalRead(i) == LOW)
+        if (digitalRead(buttons[i]) == LOW)
         {
             return i + 1;
         }
@@ -81,7 +81,7 @@ void setup()
 void loop()
 {
     uint8_t button_pressed = read_button();
-    lcd.setCursor(0, 4);
+    lcd.setCursor(0, 3);
     lcd.print(String("BUTTON ") + button_pressed + String(" "));
 
     switch (button_pressed)
@@ -122,7 +122,7 @@ void loop()
     default:
         lcd.setCursor(0, 0);
         lcd.print(String("PC Value: ") + (current_bank - 1) * NB_BANKS + button_pressed);
-        midi.sendProgramChange((current_bank - 1) * NB_BANKS + button_pressed);
+        // midi.sendProgramChange((current_bank - 1) * NB_BANKS + button_pressed);
         delay(300);
         break;
     }
