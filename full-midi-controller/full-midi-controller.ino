@@ -16,7 +16,7 @@
 #define BUTTON_DOWN 8
 #define BUTTON_MODE 9
 
-#define NB_BUTTONS 4
+#define NB_BUTTONS 6
 #define NB_BANKS 10
 
 // Global Variables
@@ -74,14 +74,27 @@ void setup()
     lcd.init();
     lcd.backlight();
     lcd.clear();
+    display_bank_patches();
+}
+
+void display_bank_patches()
+{
+    char line[20];
+    lcd.clear();
     lcd.setCursor(0, 1);
     lcd.print(String("BANK ") + current_bank);
+    lcd.setCursor(0, 3);
+    sprintf(line, "PC%02d    PC%02d    PC%02d", ((current_bank - 1) * NB_BANKS + 1), ((current_bank - 1) * NB_BANKS + 2), ((current_bank - 1) * NB_BANKS + 3));
+    lcd.print(line);
+    lcd.setCursor(0, 0);
+    sprintf(line, "PC%02d    PC%02d    PC%02d", ((current_bank - 1) * NB_BANKS + 4), ((current_bank - 1) * NB_BANKS + 5), ((current_bank - 1) * NB_BANKS + 6));
+    lcd.print(line);
 }
 
 void loop()
 {
     uint8_t button_pressed = read_button();
-    lcd.setCursor(0, 3);
+    lcd.setCursor(0, 2);
     lcd.print(String("BUTTON ") + button_pressed + String(" "));
 
     switch (button_pressed)
@@ -97,8 +110,7 @@ void loop()
         {
             current_bank = 1;
         }
-        lcd.setCursor(0, 1);
-        lcd.print(String("BANK ") + current_bank + String(" "));
+        display_bank_patches();
         delay(300);
         break;
     }
@@ -109,8 +121,7 @@ void loop()
         {
             current_bank = NB_BANKS;
         }
-        lcd.setCursor(0, 1);
-        lcd.print(String("BANK ") + current_bank + String(" "));
+        display_bank_patches();
         delay(300);
         break;
     }
@@ -120,9 +131,10 @@ void loop()
         break;
     }
     default:
-        lcd.setCursor(0, 0);
-        lcd.print(String("PC Value: ") + (current_bank - 1) * NB_BANKS + button_pressed);
-        // midi.sendProgramChange((current_bank - 1) * NB_BANKS + button_pressed);
+        uint8_t pc_value = (current_bank - 1) * NB_BANKS + button_pressed;
+        lcd.setCursor(10, 2);
+        lcd.print(String("PC ") + pc_value);
+        midi.sendProgramChange(pc_value);
         delay(300);
         break;
     }
