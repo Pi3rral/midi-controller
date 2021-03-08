@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <avr/pgmspace.h>
 #include "MIDIController.h"
 #include "LiquidCrystal_I2C.h"
 
@@ -16,16 +17,18 @@
 #define FS3X_BUTTON_DOWN 8
 #define FS3X_BUTTON_MODE 9
 
+#define BUTTON_ACTION_NO_ACTION 0
 #define BUTTON_ACTION_BANK_UP 1
 #define BUTTON_ACTION_BANK_DOWN 2
-#define BUTTON_ACTION_MIDI_MESSAGE 3
+#define BUTTON_ACTION_PAGE_SWAP 3
+#define BUTTON_ACTION_MIDI_MESSAGE 4
 
 #define NB_INT_BUTTONS 6
 #define NB_TOTAL_BUTTONS 9
 #define NB_BANKS 5
 
 #define BANK_NAME_LEN 10
-#define BUTTON_NAME_LEN 5
+#define BUTTON_NAME_LEN 6
 
 #define BANK_VERSION 1
 #define NB_MESSAGE_PER_ACTION 1
@@ -47,18 +50,18 @@ typedef struct
     uint8_t action;
     uint8_t is_toggle;
     uint8_t next_action;
-    char name_action_1[BUTTON_NAME_LEN];
-    char name_action_2[BUTTON_NAME_LEN];
+    char name_action_1[BUTTON_NAME_LEN + 1];
+    char name_action_2[BUTTON_NAME_LEN + 1];
     message action_1[NB_MESSAGE_PER_ACTION];
     message action_2[NB_MESSAGE_PER_ACTION];
-} button_property; // size: 21 bytes (because nb_message=1)
+} button_property; // size: 25 bytes (because nb_message=1)
 
 struct
 {
     uint8_t version;
     char name[BANK_NAME_LEN];
-    button_property buttons[NB_TOTAL_BUTTONS];
-} bank; // size: 202 bytes
+    button_property presets[NB_TOTAL_BUTTONS];
+} bank; // size: 238 bytes
 
 int buttons[] = {4, 5, 6, 7, 8, 9};
 
@@ -107,6 +110,8 @@ void setup()
     pinMode(FS1_TIP_PIN, INPUT_PULLUP);
     pinMode(FS1_RING_PIN, INPUT_PULLUP);
 
+    load_bank();
+
     // init LCD
     lcd.init();
     lcd.backlight();
@@ -120,59 +125,68 @@ void load_bank()
     sprintf(bank.name, "BANK %d", current_bank);
     for (int i = 0; i < NB_INT_BUTTONS; ++i)
     {
-        bank.buttons[i].action = BUTTON_ACTION_MIDI_MESSAGE;
-        bank.buttons[i].is_toggle = 1;
-        bank.buttons[i].next_action = 0;
-        sprintf(bank.buttons[0].name_action_1, "pc %02d", current_bank * NB_BANKS + i + 1);
-        sprintf(bank.buttons[0].name_action_1, "PC %02d", current_bank * NB_BANKS + i + 1);
-        bank.buttons[0].action_1[0].midi_channel = 1;
-        bank.buttons[0].action_1[0].message_type = PROGRAM_CHANGE;
-        bank.buttons[0].action_1[0].message_type = current_bank * NB_BANKS + i + 1;
-        bank.buttons[0].action_2[0].midi_channel = 1;
-        bank.buttons[0].action_2[0].message_type = PROGRAM_CHANGE;
-        bank.buttons[0].action_2[0].message_type = current_bank * NB_BANKS + i + 1;
+        bank.presets[i].action = BUTTON_ACTION_MIDI_MESSAGE;
+        bank.presets[i].is_toggle = 1;
+        bank.presets[i].next_action = 0;
+        sprintf(bank.presets[i].name_action_1, "PC1 %02d", current_bank * NB_BANKS + i + 1);
+        sprintf(bank.presets[i].name_action_2, "PC2 %02d", current_bank * NB_BANKS + i + 1);
+        bank.presets[i].action_1[0].midi_channel = 1;
+        bank.presets[i].action_1[0].message_type = PROGRAM_CHANGE;
+        bank.presets[i].action_1[0].message_number = current_bank * NB_BANKS + i + 1;
+        bank.presets[i].action_1[0].message_value = 0;
+        bank.presets[i].action_2[0].midi_channel = 1;
+        bank.presets[i].action_2[0].message_type = PROGRAM_CHANGE;
+        bank.presets[i].action_2[0].message_number = current_bank * NB_BANKS + i + 1;
+        bank.presets[i].action_2[0].message_value = 0;
     }
     // hardcode buttons for external footswitch of type FS3X
-    bank.buttons[FS3X_BUTTON_UP].action = BUTTON_ACTION_BANK_UP;
-    bank.buttons[FS3X_BUTTON_UP].is_toggle = 0;
-    bank.buttons[FS3X_BUTTON_UP].next_action = 0;
-    bank.buttons[FS3X_BUTTON_DOWN].action = BUTTON_ACTION_BANK_DOWN;
-    bank.buttons[FS3X_BUTTON_DOWN].is_toggle = 0;
-    bank.buttons[FS3X_BUTTON_DOWN].next_action = 0;
-    bank.buttons[FS3X_BUTTON_MODE].action = BUTTON_ACTION_BANK_UP;
-    bank.buttons[FS3X_BUTTON_MODE].is_toggle = 0;
-    bank.buttons[FS3X_BUTTON_MODE].next_action = 0;
+    bank.presets[FS3X_BUTTON_UP].action = BUTTON_ACTION_BANK_UP;
+    bank.presets[FS3X_BUTTON_UP].is_toggle = 0;
+    bank.presets[FS3X_BUTTON_UP].next_action = 0;
+    bank.presets[FS3X_BUTTON_DOWN].action = BUTTON_ACTION_BANK_DOWN;
+    bank.presets[FS3X_BUTTON_DOWN].is_toggle = 0;
+    bank.presets[FS3X_BUTTON_DOWN].next_action = 0;
+    bank.presets[FS3X_BUTTON_MODE].action = BUTTON_ACTION_PAGE_SWAP;
+    bank.presets[FS3X_BUTTON_MODE].is_toggle = 0;
+    bank.presets[FS3X_BUTTON_MODE].next_action = 0;
 }
 
 void display_bank_patches()
 {
-    char line[20];
+    // char line[20];
+    uint8_t col_offset = 0;
     lcd.clear();
     lcd.setCursor(0, 1);
+    lcd.print("BANK: ");
+    lcd.setCursor(6, 1);
     lcd.print(bank.name);
-    lcd.setCursor(0, 3);
-    sprintf(line, "%6s %6s % 6s",
-            bank.buttons[3].is_toggle && bank.buttons[3].next_action ? bank.buttons[3].name_action_2 : bank.buttons[3].name_action_1,
-            bank.buttons[4].is_toggle && bank.buttons[4].next_action ? bank.buttons[4].name_action_2 : bank.buttons[4].name_action_1,
-            bank.buttons[5].is_toggle && bank.buttons[5].next_action ? bank.buttons[5].name_action_2 : bank.buttons[5].name_action_1);
-    lcd.print(line);
+    // line 1 - preset 4, 5, 6
     lcd.setCursor(0, 0);
-    sprintf(line, "%6s %6s % 6s",
-            bank.buttons[0].is_toggle && bank.buttons[0].next_action ? bank.buttons[0].name_action_2 : bank.buttons[0].name_action_1,
-            bank.buttons[1].is_toggle && bank.buttons[1].next_action ? bank.buttons[1].name_action_2 : bank.buttons[1].name_action_1,
-            bank.buttons[2].is_toggle && bank.buttons[2].next_action ? bank.buttons[2].name_action_2 : bank.buttons[2].name_action_1);
-    lcd.print(line);
+    lcd.print(bank.presets[3].is_toggle && bank.presets[3].next_action ? bank.presets[3].name_action_2 : bank.presets[3].name_action_1);
+    col_offset = (6 - strlen(bank.presets[4].is_toggle && bank.presets[4].next_action ? bank.presets[4].name_action_2 : bank.presets[4].name_action_1)) / 2;
+    lcd.setCursor(7 + col_offset, 0);
+    lcd.print(bank.presets[4].is_toggle && bank.presets[4].next_action ? bank.presets[4].name_action_2 : bank.presets[4].name_action_1);
+    col_offset = 5 - strlen(bank.presets[5].is_toggle && bank.presets[5].next_action ? bank.presets[5].name_action_2 : bank.presets[5].name_action_1);
+    lcd.setCursor(15 + col_offset, 0);
+    lcd.print(bank.presets[5].is_toggle && bank.presets[5].next_action ? bank.presets[5].name_action_2 : bank.presets[5].name_action_1);
+    // line 4 - preset 1, 2, 3
+    lcd.setCursor(0, 3);
+    lcd.print(bank.presets[0].is_toggle && bank.presets[0].next_action ? bank.presets[0].name_action_2 : bank.presets[0].name_action_1);
+    col_offset = (6 - strlen(bank.presets[1].is_toggle && bank.presets[1].next_action ? bank.presets[1].name_action_2 : bank.presets[1].name_action_1)) / 2;
+    lcd.setCursor(7 + col_offset, 3);
+    lcd.print(bank.presets[1].is_toggle && bank.presets[1].next_action ? bank.presets[1].name_action_2 : bank.presets[1].name_action_1);
+    col_offset = 5 - strlen(bank.presets[2].is_toggle && bank.presets[2].next_action ? bank.presets[2].name_action_2 : bank.presets[2].name_action_1);
+    lcd.setCursor(15 + col_offset, 3);
+    lcd.print(bank.presets[2].is_toggle && bank.presets[2].next_action ? bank.presets[2].name_action_2 : bank.presets[2].name_action_1);
 }
 
 void loop()
 {
     uint8_t button_pressed = read_button();
-    lcd.setCursor(0, 2);
-    lcd.print(String("BUTTON ") + button_pressed + String(" "));
 
-    if (button_pressed)
+    if (button_pressed != NO_BUTTON)
     {
-        switch (bank.buttons[button_pressed].action)
+        switch (bank.presets[button_pressed].action)
         {
         case BUTTON_ACTION_BANK_UP:
         {
@@ -182,6 +196,7 @@ void loop()
                 current_bank = 1;
             }
             load_bank();
+            display_bank_patches();
             delay(300);
             break;
         }
@@ -193,69 +208,30 @@ void loop()
                 current_bank = NB_BANKS;
             }
             load_bank();
+            display_bank_patches();
             delay(300);
+            break;
+        }
+        case BUTTON_ACTION_PAGE_SWAP:
+        {
             break;
         }
         case BUTTON_ACTION_MIDI_MESSAGE:
         {
-            if (bank.buttons[button_pressed].is_toggle && bank.buttons[button_pressed].next_action)
+            if (bank.presets[button_pressed].is_toggle && bank.presets[button_pressed].next_action)
             {
-                midi.sendMIDI(bank.buttons[button_pressed].action_2[0].message_type, bank.buttons[button_pressed].action_2[0].midi_channel, bank.buttons[button_pressed].action_2[0].message_number, bank.buttons[button_pressed].action_2[0].message_value);
+                // midi.sendMIDI(bank.presets[button_pressed].action_2[0].message_type, bank.presets[button_pressed].action_2[0].midi_channel, bank.presets[button_pressed].action_2[0].message_number, bank.presets[button_pressed].action_2[0].message_value);
+                bank.presets[button_pressed].next_action = 0;
             }
             else
             {
-                midi.sendMIDI(bank.buttons[button_pressed].action_1[0].message_type, bank.buttons[button_pressed].action_1[0].midi_channel, bank.buttons[button_pressed].action_1[0].message_number, bank.buttons[button_pressed].action_1[0].message_value);
+                // midi.sendMIDI(bank.presets[button_pressed].action_1[0].message_type, bank.presets[button_pressed].action_1[0].midi_channel, bank.presets[button_pressed].action_1[0].message_number, bank.presets[button_pressed].action_1[0].message_value);
+                bank.presets[button_pressed].next_action = 1;
             }
-            if (bank.buttons[button_pressed].is_toggle)
-            {
-                bank.buttons[button_pressed].next_action = !bank.buttons[button_pressed].next_action;
-            }
+            display_bank_patches();
             delay(300);
             break;
         }
         }
-        display_bank_patches();
     }
-
-    // switch (button_pressed)
-    // {
-    // case NO_BUTTON:
-    // {
-    //     break;
-    // }
-    // case FS3X_BUTTON_UP:
-    // {
-    //     ++current_bank;
-    //     if (current_bank > NB_BANKS)
-    //     {
-    //         current_bank = 1;
-    //     }
-    //     display_bank_patches();
-    //     delay(300);
-    //     break;
-    // }
-    // case FS3X_BUTTON_DOWN:
-    // {
-    //     --current_bank;
-    //     if (current_bank < 1)
-    //     {
-    //         current_bank = NB_BANKS;
-    //     }
-    //     display_bank_patches();
-    //     delay(300);
-    //     break;
-    // }
-    // case FS3X_BUTTON_MODE:
-    // {
-    //     delay(300);
-    //     break;
-    // }
-    // default:
-    //     uint8_t pc_value = (current_bank - 1) * NB_BANKS + button_pressed;
-    //     lcd.setCursor(10, 2);
-    //     lcd.print(String("PC ") + pc_value);
-    //     midi.sendProgramChange(pc_value);
-    //     delay(300);
-    //     break;
-    // }
 }
