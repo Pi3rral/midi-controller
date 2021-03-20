@@ -25,7 +25,7 @@
 
 #define NB_INT_BUTTONS 6
 #define NB_TOTAL_BUTTONS 9
-#define NB_BANKS 15
+#define NB_BANKS 5
 
 // Global Variables
 MIDIController midi;
@@ -35,7 +35,7 @@ bank bank_loaded;
 
 uint8_t buttons[] = {4, 5, 6, 7, 8, 9};
 
-uint8_t current_bank = 0;
+uint8_t current_bank = 1;
 uint8_t current_page = 0;
 
 uint8_t read_button_fs3x_1()
@@ -143,9 +143,7 @@ void loop()
 
     if (button_pressed != NO_BUTTON)
     {
-        switch (bank_loaded.presets[button_pressed].action)
-        {
-        case BUTTON_ACTION_BANK_UP:
+        if (button_pressed == FS3X_BUTTON_UP)
         {
             if (current_bank >= NB_BANKS)
             {
@@ -158,11 +156,9 @@ void loop()
             load_bank();
             display_bank_patches();
             delay(300);
-            break;
         }
-        case BUTTON_ACTION_BANK_DOWN:
+        else if (button_pressed == FS3X_BUTTON_DOWN)
         {
-
             if (current_bank == 1)
             {
                 current_bank = NB_BANKS - 1;
@@ -174,9 +170,8 @@ void loop()
             load_bank();
             display_bank_patches();
             delay(300);
-            break;
         }
-        case BUTTON_ACTION_PAGE_SWAP:
+        else if (button_pressed == FS3X_BUTTON_MODE)
         {
             ++current_page;
             if (current_page >= bank_loaded.nb_pages)
@@ -185,25 +180,29 @@ void loop()
             }
             display_bank_patches();
             delay(300);
-            break;
         }
-        case BUTTON_ACTION_MIDI_MESSAGE:
+        else
         {
-            uint8_t preset_number = button_pressed + (current_page * NB_INT_BUTTONS);
-            if (bank_loaded.presets[preset_number].is_toggle && bank_loaded.presets[preset_number].next_action)
+            uint8_t preset_number = (current_page * NB_INT_BUTTONS) + button_pressed - 1;
+            switch (bank_loaded.presets[preset_number].action)
             {
-                // midi.sendMIDI(bank_loaded.presets[preset_number].action_2[0].message_type, bank_loaded.presets[preset_number].action_2[0].midi_channel, bank_loaded.presets[preset_number].action_2[0].message_number, bank_loaded.presets[preset_number].action_2[0].message_value);
-                bank_loaded.presets[preset_number].next_action = 0;
-            }
-            else
+            case BUTTON_ACTION_MIDI_MESSAGE:
             {
-                // midi.sendMIDI(bank_loaded.presets[preset_number].action_1[0].message_type, bank_loaded.presets[preset_number].action_1[0].midi_channel, bank_loaded.presets[preset_number].action_1[0].message_number, bank_loaded.presets[preset_number].action_1[0].message_value);
-                bank_loaded.presets[preset_number].next_action = 1;
+                if (bank_loaded.presets[preset_number].is_toggle && bank_loaded.presets[preset_number].next_action)
+                {
+                    // midi.sendMIDI(bank_loaded.presets[preset_number].action_2[0].message_type, bank_loaded.presets[preset_number].action_2[0].midi_channel, bank_loaded.presets[preset_number].action_2[0].message_number, bank_loaded.presets[preset_number].action_2[0].message_value);
+                    bank_loaded.presets[preset_number].next_action = 0;
+                }
+                else
+                {
+                    // midi.sendMIDI(bank_loaded.presets[preset_number].action_1[0].message_type, bank_loaded.presets[preset_number].action_1[0].midi_channel, bank_loaded.presets[preset_number].action_1[0].message_number, bank_loaded.presets[preset_number].action_1[0].message_value);
+                    bank_loaded.presets[preset_number].next_action = 1;
+                }
+                display_bank_patches();
+                delay(300);
+                break;
             }
-            display_bank_patches();
-            delay(300);
-            break;
-        }
+            }
         }
     }
 }
