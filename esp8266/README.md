@@ -29,6 +29,12 @@ python -m esptool --port /dev/tty.usbserial-1410 --baud 460800 write_flash --fla
 ampy --port /dev/tty.usbserial-1410 run src/main.py
 ```
 
+### Upload file
+
+```shell
+ampy --port /dev/tty.usbserial-1410 put src/main.py /main.py
+```
+
 ### Connect to REPL
 
 #### Using `screen`
