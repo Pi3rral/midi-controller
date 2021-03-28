@@ -57,6 +57,18 @@ repl
 ```
 exit with `Ctrl-X`
 
+#### Free Flash Space
+
+From REPL
+
+```python
+import uos
+fs_stat = uos.statvfs('/')
+fs_size = fs_stat[0] * fs_stat[2]
+fs_free = fs_stat[0] * fs_stat[3]
+print("File System Size {:,} - Free Space {:,}".format(fs_size, fs_free))
+```
+
 ## Wiring Schema
 
 ![diagram](img/diagram.png)
