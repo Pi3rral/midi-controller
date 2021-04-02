@@ -1,0 +1,125 @@
+{
+    "name": "BASIC",
+    "presets": [
+        {
+            "position": 0,
+            "name": "PC1",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=1"
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "name": "PC2",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=2"
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "name": "PC3",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=3"
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "name": "PC4",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=4"
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "name": "PC5",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=5"
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "PC6",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=6"
+                }
+            ]
+        },
+        {
+            "position": 6,
+            "name": "PC7",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=7"
+                }
+            ]
+        },
+        {
+            "position": 7,
+            "name": "PC8",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=8"
+                }
+            ]
+        },
+        {
+            "position": 8,
+            "name": "PC9",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=9"
+                }
+            ]
+        },
+        {
+            "position": 9,
+            "name": "PC10",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=10"
+                }
+            ]
+        },
+        {
+            "position": 10,
+            "name": "PC11",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=11"
+                }
+            ]
+        },
+        {
+            "position": 11,
+            "name": "PC12",
+            "actions": [
+                {
+                    "position": 0,
+                    "message": "program_change channel=1 program=12"
+                }
+            ]
+        }
+    ]
+}

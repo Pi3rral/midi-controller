@@ -15,9 +15,9 @@ Simple MIDI foot controller made with an arduino and an external 3 buttons foots
 
 ## Photos
 
-![outside](doc/outside.jpg) | ![inside](doc/inside.jpg)
----------|--------
-![channel_select](doc/channel_select.jpg) | ![footswitch](doc/footswitch.jpg)
+| ![outside](doc/outside.jpg)               | ![inside](doc/inside.jpg)         |
+| ----------------------------------------- | --------------------------------- |
+| ![channel_select](doc/channel_select.jpg) | ![footswitch](doc/footswitch.jpg) |
 
 ## Usage
 
@@ -50,6 +50,12 @@ https://arduino.github.io/arduino-cli/
 ```bash
 brew install arduino-cli
 arduino-cli core install arduino:avr
+```
+
+### Install libraries
+
+```shell
+arduino-cli lib install SD
 ```
 
 ### Build

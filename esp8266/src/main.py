@@ -1,4 +1,4 @@
-from machine import Pin, ADC
+from machine import Pin
 from utime import sleep_us, sleep_ms
 import wifi
 import bank
@@ -15,6 +15,8 @@ clk_pin.value(0)
 
 button_values = [0, 0, 0, 0, 0, 0, 0, 0]
 
+bank.set_max_bank()
+
 
 def read_buttons():
     pl_pin.value(0)
@@ -30,20 +32,6 @@ def read_buttons():
         clk_pin.value(0)
         if bitVal:
             button_pressed = True
-
-    # if button_pressed:
-    #     print(
-    #         "buttons: {},{},{},{},{},{},{},{}".format(
-    #             button_values[0],
-    #             button_values[1],
-    #             button_values[2],
-    #             button_values[3],
-    #             button_values[4],
-    #             button_values[5],
-    #             button_values[6],
-    #             button_values[7],
-    #         )
-    #     )
     return button_pressed
 
 
@@ -52,7 +40,6 @@ wifi.no_wifi()
 
 print("Read buttons...")
 while True:
-    sleep_ms(200)
     if read_buttons():
         if button_values[FS3X_TIP_IDX]:
             if button_values[FS3X_RING_IDX]:
@@ -65,3 +52,4 @@ while True:
             for i in range(0, 6):
                 if button_values[i]:
                     bank.button_pressed(i)
+        sleep_ms(200)
