@@ -1,12 +1,13 @@
 import os
 
 from midi.ports import ESP8266TX1Port
-from midi.message import Message
+from midi.adafruit_midi import MIDI, MIDIMessage, program_change
 
 current_bank = 1
 max_bank = 0
 
 midi_port = ESP8266TX1Port()
+midi_controller = MIDI(midi_out=midi_port)
 
 
 def set_max_bank():
@@ -44,7 +45,7 @@ def load_bank():
 def button_pressed(button_number):
     global midi_port
     print("button_number: {}".format(button_number))
-    message = Message("program_change", channel=current_bank, data1=button_number + 1)
+    message = program_change.ProgramChange(patch=button_number + 1, channel=1)
     print("send midi message")
     print(message)
-    midi_port.send(message)
+    midi_controller.send(message)

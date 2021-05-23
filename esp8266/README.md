@@ -47,7 +47,7 @@ exit with `Ctrl-A; Ctrl-\`
 #### Using `rshell`
 
 ```shell
-rshell -p rshell -p /dev/tty.usbserial-1410
+rshell -p /dev/tty.usbserial-1410
 ```
 exit with `Ctrl-D`
 
