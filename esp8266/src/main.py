@@ -1,5 +1,6 @@
-from machine import Pin
+from machine import Pin, I2C
 from utime import sleep_us, sleep_ms
+from lcd.esp8266_i2c_lcd import I2cLcd
 import wifi
 import bank
 
@@ -37,6 +38,11 @@ def read_buttons():
 
 # wifi.connect_home_wifi()
 wifi.no_wifi()
+
+# Test LCD
+lcd = I2cLcd(I2C(scl=Pin(5), sda=Pin(4)), 0x3F, 4, 20)
+lcd.move_to(0, 0)
+lcd.putstr("Test line 1 \n and 2")
 
 print("Read buttons...")
 while True:
