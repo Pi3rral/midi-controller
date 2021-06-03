@@ -23,14 +23,15 @@ class Controller:
     def print_menu(self):
         if not self.lcd:
             return
+        patch_names = self.bank.get_current_presets_names()
         self.lcd.move_to(0, 0)
-        self.lcd.putstr("Pres.1 Pres.2 Pres.3")
+        self.lcd.putstr(" ".join(patch_names[:3]))
         self.lcd.move_to(0, 1)
         self.lcd.putstr("Bank: " + self.bank.get_current_bank_name())
         self.lcd.move_to(0, 2)
-        self.lcd.putstr("")
+        self.lcd.putstr("Page: " + str(self.bank.get_current_page()))
         self.lcd.move_to(0, 3)
-        self.lcd.putstr("Pres.4 Pres.5 Pres.6")
+        self.lcd.putstr(" ".join(patch_names[3:]))
 
     def loop(self):
         if self.read_buttons():
@@ -46,6 +47,7 @@ class Controller:
                     if self.button_values[i]:
                         self.bank.button_pressed(i)
             self.wait_bounce()
+            self.print_menu()
 
     def main(self):
         while True:

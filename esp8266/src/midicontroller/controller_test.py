@@ -23,13 +23,15 @@ class PrintLcd(LcdApi):
 
 class ControllerTest(Controller):
     def __init__(self):
-        self.bank = Bank()
+        self.bank = Bank(
+            banks_directory="/Users/pleca/Documents/midi-controller/esp8266/banks"
+        )
         self.lcd = PrintLcd()
         self.print_menu()
 
     def read_buttons(self):
         self.button_values = [0, 0, 0, 0, 0, 0, 0, 0]
-        button = int(input("Please enter something: "))
+        button = int(input("Button pressed: "))
         if button > 9:
             return False
         elif button == 9:
