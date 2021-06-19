@@ -39,6 +39,7 @@ class ControllerTest(Controller):
             self.button_values[7] = 1
         else:
             self.button_values[button - 1] = 1
+        print("")
         return True
 
 

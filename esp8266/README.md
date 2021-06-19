@@ -71,6 +71,10 @@ print("File System Size {:,} - Free Space {:,}".format(fs_size, fs_free))
 
 ## Wiring Schema
 
+R-Tx = 10 Ohm
+
+R-V3.3 = 47 Ohm
+
 ![diagram](img/diagram.png)
 
 Note: Connect 74HC165 to Pin D3 (GPIO0) make the board fail to boot.

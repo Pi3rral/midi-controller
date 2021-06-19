@@ -29,6 +29,7 @@ class Bank:
         self.max_bank = len(os.listdir(self.banks_directory))
 
     def swap_page(self):
+        print("swap_page")
         self.current_page = (self.current_page + 1) % 2
 
     def bank_up(self):
