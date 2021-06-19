@@ -1,6 +1,10 @@
 # IDEs
-.vscode/
+# .vscode/
 .idea/
+
+# python objects
+__pycache__/
+*.pyc
 
 # arduino-cli object files
 *.elf
