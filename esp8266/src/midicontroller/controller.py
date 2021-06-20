@@ -24,14 +24,13 @@ class Controller:
         if not self.lcd:
             return
         patch_names = self.bank.get_current_presets_names()
+        self.lcd.clear()
         self.lcd.move_to(0, 0)
         self.lcd.putstr(patch_names[0])
         self.lcd.move_to(7, 0)
         self.lcd.putstr(patch_names[1])
         self.lcd.move_to(14, 0)
         self.lcd.putstr(patch_names[2])
-        # self.lcd.move_to(0, 0)
-        # self.lcd.putstr(" ".join(patch_names[:3]))
         self.lcd.move_to(0, 1)
         self.lcd.putstr("Bank: " + self.bank.get_current_bank_name())
         self.lcd.move_to(0, 2)
@@ -42,8 +41,6 @@ class Controller:
         self.lcd.putstr(patch_names[4])
         self.lcd.move_to(14, 3)
         self.lcd.putstr(patch_names[5])
-        # self.lcd.move_to(0, 3)
-        # self.lcd.putstr(" ".join(patch_names[3:]))
 
     def loop(self):
         if self.read_buttons():
