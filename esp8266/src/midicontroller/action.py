@@ -1,10 +1,6 @@
-# from .midi.ports import ESP8266TX1Port
-# from .midi.adafruit_midi import MIDI
 from .midi.adafruit_midi.program_change import ProgramChange
 from .midi.adafruit_midi.control_change import ControlChange
-
-# midi_port = ESP8266TX1Port()
-# midi = MIDI(midi_out=midi_port)
+from .midi import MidiPort
 
 
 class ActionType:
@@ -26,7 +22,6 @@ class Action:
         self.parameters = parameters
 
     def do_action(self):
-        # print("do_action: " + self.type + str(self.parameters))
         if self.type == ActionType.MIDI:
             self.do_midi_action()
         # raise NotImplemented
@@ -35,6 +30,15 @@ class Action:
         if self.parameters["type"] == MIDIMessage.PROGRAM_CHANGE:
             message = ProgramChange(
                 patch=int(self.parameters["patch"]),
-                channel=int(self.parameters["channel"]),
             )
+            channel = int(self.parameters["channel"])
+        elif self.parameters["type"] == MIDIMessage.CONTROL_CHANGE:
+            message = ControlChange(
+                control=int(self.parameters["control"]),
+                value=int(self.parameters["value"]),
+            )
+            channel = int(self.parameters["channel"])
+        else:
+            raise NotImplemented
         print("send midi message: " + str(self.parameters))
+        MidiPort.send(message, channel)

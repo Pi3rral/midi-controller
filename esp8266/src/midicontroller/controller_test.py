@@ -1,10 +1,12 @@
-# import sys
-
-# print(sys.path)
-
 from .controller import Controller
 from .bank import Bank
 from .lcd.lcd_api import LcdApi
+from .midi import MidiPort
+
+
+class PrintMidi:
+    def send(self, msg, channel=None):
+        print(f"PrintMIDI send channel {channel}: {msg}")
 
 
 class PrintLcd(LcdApi):
@@ -28,6 +30,7 @@ class ControllerTest(Controller):
         )
         self.lcd = PrintLcd()
         self.print_menu()
+        MidiPort.midi_object = PrintMidi()
 
     def read_buttons(self):
         self.button_values = [0, 0, 0, 0, 0, 0, 0, 0]

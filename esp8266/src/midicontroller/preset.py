@@ -14,7 +14,6 @@ class Preset:
 
     def load(self, name, actions):
         self.name = name
-        # del self.actions
         self.actions = []
         for action in actions:
             self.actions.append(Action(action["type"], action["parameters"]))

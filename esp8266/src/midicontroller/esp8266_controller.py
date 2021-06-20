@@ -3,6 +3,9 @@ from machine import Pin, I2C
 from .controller import Controller
 from .bank import Bank
 from .lcd.esp8266_i2c_lcd import I2cLcd
+from .midi.ports import ESP8266TX1Port
+from .midi.adafruit_midi import MIDI
+from .midi import MidiPort
 
 
 PULSE_WIDTH_USEC = 5
@@ -15,6 +18,11 @@ class ESP8266Controller(Controller):
         self.clk_pin = Pin(12, Pin.OUT)
         self.data_pin = Pin(13, Pin.IN)
         self.clk_pin.value(0)
+
+        # init midi
+        midi_port = ESP8266TX1Port()
+        midi = MIDI(midi_out=midi_port)
+        MidiPort.midi_object = midi
 
         # init bank and LCD
         self.bank = Bank()
