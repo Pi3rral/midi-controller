@@ -52,9 +52,8 @@ class Bank:
 
     def load_bank(self):
         print("load_bank: {}".format(self.current_bank))
-        bank_file = uos.path.join(
-            self.banks_directory, "bank_" + str(self.current_bank) + ".json"
-        )
+        bank_file = self.banks_directory + "/bank_" + str(self.current_bank) + ".json"
+
         with open(bank_file) as fp:
             bank_data = ujson.load(fp)
         self.name = bank_data.get("name")
