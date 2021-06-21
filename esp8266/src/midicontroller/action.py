@@ -24,7 +24,6 @@ class Action:
     def do_action(self):
         if self.type == ActionType.MIDI:
             self.do_midi_action()
-        # raise NotImplemented
 
     def do_midi_action(self):
         if self.parameters["type"] == MIDIMessage.PROGRAM_CHANGE:
@@ -39,6 +38,5 @@ class Action:
             )
             channel = int(self.parameters["channel"])
         else:
-            raise NotImplemented
-        print("send midi message: " + str(self.parameters))
+            return
         MidiPort.send(message, channel)

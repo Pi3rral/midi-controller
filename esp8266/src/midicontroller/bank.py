@@ -33,31 +33,26 @@ class Bank:
         self.max_bank = len(uos.listdir(self.banks_directory))
 
     def swap_page(self):
-        print("swap_page")
         self.current_page = (self.current_page + 1) % self.NB_PAGES
 
     def bank_up(self):
-        print("bank_up")
         self.current_bank += 1
         if self.current_bank > self.max_bank:
             self.current_bank = 1
         self.load_bank()
 
     def bank_down(self):
-        print("bank_down")
         self.current_bank -= 1
         if self.current_bank <= 0:
             self.current_bank = self.max_bank
         self.load_bank()
 
     def load_bank(self):
-        print("load_bank: {}".format(self.current_bank))
         bank_file = self.banks_directory + "/bank_" + str(self.current_bank) + ".json"
-
         with open(bank_file) as fp:
             bank_data = ujson.load(fp)
         self.name = bank_data.get("name")
-        # del self.presets
+        self.current_page = 0
         self.presets = []
         for preset in bank_data.get("presets"):
             self.presets.append(Preset(preset.get("name"), preset.get("actions")))
@@ -67,7 +62,6 @@ class Bank:
         gc.collect()
 
     def button_pressed(self, button_number):
-        print("button_number: {}".format(button_number))
         self.presets[
             button_number + (self.current_page * self.NB_PHYSICAL_BUTTONS)
         ].pressed()
