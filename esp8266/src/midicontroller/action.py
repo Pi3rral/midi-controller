@@ -29,12 +29,14 @@ class Action:
         if self.parameters["type"] == MIDIMessage.PROGRAM_CHANGE:
             message = ProgramChange(
                 patch=int(self.parameters["patch"]),
+                channel=int(self.parameters["channel"]),
             )
             channel = int(self.parameters["channel"])
         elif self.parameters["type"] == MIDIMessage.CONTROL_CHANGE:
             message = ControlChange(
                 control=int(self.parameters["control"]),
                 value=int(self.parameters["value"]),
+                channel=int(self.parameters["channel"]),
             )
             channel = int(self.parameters["channel"])
         else:

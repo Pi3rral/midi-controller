@@ -283,6 +283,9 @@ class MIDIMessage:
         representation of the MIDI message."""
         return cls()
 
+    def __str__(self):
+        return self.__class__.__name__
+
 
 # DO NOT try to register these messages
 class MIDIUnknownEvent(MIDIMessage):

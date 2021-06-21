@@ -14,7 +14,7 @@ class PrintMidi:
     def send(self, msg, channel=None):
         stdscr.addstr(5, 0, f"PrintMIDI send channel {channel}: {msg}")
         stdscr.refresh()
-        sleep(3)
+        sleep(2)
         # print(f"PrintMIDI send channel {channel}: {msg}")
 
 

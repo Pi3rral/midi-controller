@@ -45,5 +45,8 @@ class ProgramChange(MIDIMessage):
     def from_bytes(cls, msg_bytes):
         return cls(msg_bytes[1], channel=msg_bytes[0] & cls.CHANNELMASK)
 
+    def __str__(self):
+        return f"program_change - patch: {self.patch} - channel: {self.channel}"
+
 
 ProgramChange.register_message_type()
