@@ -41,4 +41,5 @@ class Action:
             channel = int(self.parameters["channel"])
         else:
             return
+        print(self.parameters)
         MidiPort.send(message, channel)

@@ -36,12 +36,12 @@ class ESP8266Controller(Controller):
         button_pressed = False
 
         for i in range(0, 8):
-            bitVal = self.data_pin.value()
-            self.button_values[i] = bitVal
+            pressed = not self.data_pin.value()
+            self.button_values[i] = pressed
             self.clk_pin.value(1)
             sleep_us(PULSE_WIDTH_USEC)
             self.clk_pin.value(0)
-            if bitVal:
+            if pressed:
                 button_pressed = True
         return button_pressed
 

@@ -51,7 +51,9 @@ class ControlChange(MIDIMessage):
         return cls(msg_bytes[1], msg_bytes[2], channel=msg_bytes[0] & cls.CHANNELMASK)
 
     def __str__(self):
-        return f"control_change - control: {self.control} - value: {self.value} - channel: {self.channel}"
+        return "control_change - control: {} - value: {} - channel: {}".format(
+            self.control, self.value, self.channel
+        )
 
 
 ControlChange.register_message_type()
