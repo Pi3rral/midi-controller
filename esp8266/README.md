@@ -82,4 +82,9 @@ R-V3.3 = 47 Ohm
 
 Note: Connect 74HC165 to Pin D3 (GPIO0) make the board fail to boot.
 
+## External Libraries Used
 
+https://github.com/adafruit/Adafruit_CircuitPython_MIDI
+- added `__str__` to `MIDIMessage`, `ProgramChange` and `ControlChange` classes
+
+https://github.com/dhylands/python_lcd
