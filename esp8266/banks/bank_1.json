@@ -14,16 +14,6 @@
                         "channel": "1",
                         "patch": "1"
                     }
-                },
-                {
-                    "position": 1,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "2",
-                        "control": "10",
-                        "value": "127"
-                    }
                 }
             ]
         },
