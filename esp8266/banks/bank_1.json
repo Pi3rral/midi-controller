@@ -11,8 +11,17 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "0",
                         "patch": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
                     }
                 }
             ]
@@ -26,8 +35,17 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "0",
                         "patch": "2"
+                    }
+                },
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "1"
                     }
                 }
             ]
@@ -41,8 +59,17 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "0",
                         "patch": "3"
+                    }
+                },
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "2"
                     }
                 }
             ]
@@ -56,7 +83,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "4"
                     }
                 }
@@ -71,7 +98,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "5"
                     }
                 }
@@ -86,7 +113,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "6"
                     }
                 }
@@ -101,7 +128,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "7"
                     }
                 }
@@ -116,7 +143,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "8"
                     }
                 }
@@ -131,7 +158,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "9"
                     }
                 }
@@ -146,7 +173,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "10"
                     }
                 }
@@ -161,7 +188,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "11"
                     }
                 }
@@ -176,7 +203,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
+                        "channel": "3",
                         "patch": "12"
                     }
                 }
