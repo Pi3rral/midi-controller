@@ -1,0 +1,4 @@
+esptool
+adafruit-ampy
+rshell
+mido

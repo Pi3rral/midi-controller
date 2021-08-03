@@ -1,0 +1,96 @@
+{
+    "name": "Toune 2",
+    "version": "v1",
+    "presets": [
+        {
+            "position": 0,
+            "name": "Clean",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "6"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "name": "OD",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "name": "Disto",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "name": "Solo",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "name": "Bridge",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "Extra",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "6"
+                    }
+                }
+            ]
+        }
+    ]
+}
