@@ -16,15 +16,14 @@ class Bank:
     NB_PHYSICAL_BUTTONS = 6
     NB_PAGES = 2
 
-    max_bank = 0
-    current_bank = 1
-    current_page = 0
-    current_preset = 1
-    presets = []
-    presets_name = []
-    name = None
-
     def __init__(self, banks_directory=None):
+        self.max_bank = 0
+        self.current_bank = 1
+        self.current_page = 0
+        self.current_preset = 1
+        self.presets = []
+        self.presets_name = []
+        self.name = None
         self.banks_directory = banks_directory or self.DEFAULT_BANKS_DIRECTORY
         self.set_max_bank()
         self.load_bank()
