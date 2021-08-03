@@ -1,10 +1,10 @@
 {
-    "name": "BASIC",
+    "name": "TF + CO BASICS",
     "version": "v1",
     "presets": [
         {
             "position": 0,
-            "name": "PC1",
+            "name": "PHASR",
             "actions": [
                 {
                     "position": 0,
@@ -14,21 +14,87 @@
                         "channel": "0",
                         "patch": "1"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "name": "CHORS",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "name": "T-OFF",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "name": "DL+RV",
+            "actions": [
                 {
                     "position": 0,
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "3",
-                        "patch": "0"
+                        "patch": "2"
                     }
                 }
             ]
         },
         {
-            "position": 1,
-            "name": "PC2",
+            "position": 4,
+            "name": "RV",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "DL",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 6,
+            "name": "UVIBE",
             "actions": [
                 {
                     "position": 0,
@@ -38,21 +104,12 @@
                         "channel": "0",
                         "patch": "2"
                     }
-                },
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "1"
-                    }
                 }
             ]
         },
         {
-            "position": 2,
-            "name": "PC3",
+            "position": 7,
+            "name": "FLANG",
             "actions": [
                 {
                     "position": 0,
@@ -61,150 +118,6 @@
                         "type": "program_change",
                         "channel": "0",
                         "patch": "3"
-                    }
-                },
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "2"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 3,
-            "name": "PC4",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "4"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 4,
-            "name": "PC5",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "5"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 5,
-            "name": "PC6",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "6"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 6,
-            "name": "PC7",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "7"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 7,
-            "name": "PC8",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "8"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 8,
-            "name": "PC9",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "9"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 9,
-            "name": "PC10",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "10"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 10,
-            "name": "PC11",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "11"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 11,
-            "name": "PC12",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "12"
                     }
                 }
             ]
