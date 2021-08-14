@@ -1,109 +1,43 @@
 {
-    "name": "Come As You Are",
+    "name": "TF + CO BASICS",
     "version": "v1",
     "presets": [
         {
             "position": 0,
-            "comment": "Chorus + Pitch Fork + Reverb",
-            "name": "Verse",
+            "name": "PHASR",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "1"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Chorus",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "0",
-                        "patch": "8"
+                        "patch": "1"
                     }
                 }
             ]
         },
         {
             "position": 1,
-            "comment": "Chorus + Reverb",
-            "name": "Chorus",
+            "name": "CHRUS",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "No Looop",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Chorus",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "0",
-                        "patch": "8"
+                        "patch": "5"
                     }
                 }
             ]
         },
         {
             "position": 2,
-            "comment": "Disto + Reverb",
-            "name": "Bridge",
+            "name": "T-OFF",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Disto",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "8"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Terraform Off",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -115,37 +49,105 @@
         },
         {
             "position": 3,
-            "comment": "Pitch Fork + Disto + Chorus + Reverb",
-            "name": "Solo",
+            "name": "DL+RV",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork + Disto",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "9"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "3",
-                        "patch": "0"
+                        "patch": "2"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "name": "RV",
+            "actions": [
                 {
                     "position": 0,
-                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "DL",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 6,
+            "name": "UVIBE",
+            "actions": [
+                {
+                    "position": 0,
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "0",
-                        "patch": "8"
+                        "patch": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 7,
+            "name": "FLANG",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 8,
+            "name": "TREM",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "6"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 9,
+            "name": "CHR-2",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "7"
                     }
                 }
             ]

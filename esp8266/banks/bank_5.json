@@ -1,35 +1,22 @@
 {
-    "name": "Boys Of Summer",
+    "name": "GoatRoller",
     "version": "v1",
     "presets": [
         {
             "position": 0,
-            "comment": "Disto + Reverb",
-            "name": "Main",
+            "name": "Clean",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Disto",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
                         "patch": "0"
                     }
                 },
                 {
                     "position": 0,
-                    "comment": "Terraform Off",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -41,74 +28,75 @@
         },
         {
             "position": 1,
-            "comment": "Disto + Delay",
-            "name": "Solo-1",
+            "name": "PLUM",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Disto",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb + Delay",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "1"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Terraform Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "0",
-                        "patch": "9"
+                        "patch": "2"
                     }
                 }
             ]
         },
         {
             "position": 2,
-            "comment": "Disto + Reverb",
-            "name": "Solo 2",
+            "name": "PANTH",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Disto",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "name": "SOV",
+            "actions": [
+                {
+                    "position": 0,
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
                         "patch": "8"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "name": "PITCH",
+            "actions": [
                 {
                     "position": 0,
-                    "comment": "Reverb",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
-                        "patch": "0"
+                        "channel": "2",
+                        "patch": "1"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "PI+PA",
+            "actions": [
                 {
                     "position": 0,
-                    "comment": "Terraform Off",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
-                        "patch": "9"
+                        "channel": "2",
+                        "patch": "5"
                     }
                 }
             ]

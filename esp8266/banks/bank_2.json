@@ -1,13 +1,52 @@
 {
-    "name": "GoatRoller",
+    "name": "Come As You Are",
     "version": "v1",
     "presets": [
         {
             "position": 0,
-            "name": "Clean",
+            "comment": "Chorus + Pitch Fork + Reverb",
+            "name": "Verse",
             "actions": [
                 {
                     "position": 0,
+                    "comment": "Pitch Fork",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "comment": "Chorus + Reverb",
+            "name": "Chorus",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "No Looop",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -17,6 +56,54 @@
                 },
                 {
                     "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "comment": "Disto + Reverb",
+            "name": "Bridge",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Disto",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "8"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -27,45 +114,37 @@
             ]
         },
         {
-            "position": 1,
-            "name": "PLUM",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "2"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 2,
-            "name": "PANTH",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "4"
-                    }
-                }
-            ]
-        },
-        {
             "position": 3,
-            "name": "SOV",
+            "comment": "Pitch Fork + Disto + Chorus + Reverb",
+            "name": "Solo",
             "actions": [
                 {
                     "position": 0,
+                    "comment": "Pitch Fork + Disto",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
                         "patch": "8"
                     }
                 }
@@ -73,30 +152,74 @@
         },
         {
             "position": 4,
-            "name": "PITCH",
+            "comment": "Disto + Chorus + Reverb",
+            "name": "Bridg2",
             "actions": [
                 {
                     "position": 0,
+                    "comment": "Disto",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "1"
+                        "patch": "8"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "5"
                     }
                 }
             ]
         },
         {
             "position": 5,
-            "name": "PI+PA",
+            "comment": "Pitch Fork + Panth + Chorus + Reverb",
+            "name": "Solo2",
             "actions": [
                 {
                     "position": 0,
+                    "comment": "Pitch Fork + Pantheon",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
                         "patch": "5"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "8"
                     }
                 }
             ]
