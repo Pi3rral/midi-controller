@@ -1,0 +1,117 @@
+{
+    "name": "Boys Of Summer",
+    "version": "v1",
+    "presets": [
+        {
+            "position": 0,
+            "comment": "Disto + Reverb",
+            "name": "Main",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Disto",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "8"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "comment": "Disto + Delay",
+            "name": "Solo-1",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Disto",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "8"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb + Delay",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "comment": "Disto + Reverb",
+            "name": "Solo 2",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Disto",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "8"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                }
+            ]
+        }
+    ]
+}

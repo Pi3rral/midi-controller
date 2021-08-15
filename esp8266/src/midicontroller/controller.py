@@ -48,9 +48,9 @@ class Controller:
         if self.read_buttons():
             if self.button_values[FS3X_TIP_IDX]:
                 if self.button_values[FS3X_RING_IDX]:
-                    self.bank.bank_up()
-                else:
                     self.bank.swap_page()
+                else:
+                    self.bank.bank_up()
             elif self.button_values[FS3X_RING_IDX]:
                 self.bank.bank_down()
             else:

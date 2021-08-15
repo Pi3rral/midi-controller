@@ -1,0 +1,105 @@
+{
+    "name": "GoatRoller",
+    "version": "v1",
+    "presets": [
+        {
+            "position": 0,
+            "name": "Clean",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "name": "PLUM",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "name": "PANTH",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "4"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "name": "SOV",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "8"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "name": "PITCH",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "PI+PA",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "5"
+                    }
+                }
+            ]
+        }
+    ]
+}
