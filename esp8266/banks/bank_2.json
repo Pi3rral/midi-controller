@@ -4,12 +4,12 @@
     "presets": [
         {
             "position": 0,
-            "comment": "Chorus + Pitch Fork + Reverb",
+            "comment": "Pitch Fork + Chorus + Reverb",
             "name": "Verse",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork",
+                    "comment": "Plumes + Pitch Fork",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -46,7 +46,7 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "No Looop",
+                    "comment": "Plumes",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -78,17 +78,17 @@
         },
         {
             "position": 2,
-            "comment": "Disto + Reverb",
+            "comment": "Plumes + Pantheon + Reverb",
             "name": "Bridge",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Disto",
+                    "comment": "Plumes + Pantheon",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "6"
                     }
                 },
                 {
@@ -115,7 +115,7 @@
         },
         {
             "position": 3,
-            "comment": "Pitch Fork + Disto + Chorus + Reverb",
+            "comment": "Pitch Fork + Plumes + Pantheon + Chorus + Reverb",
             "name": "Solo",
             "actions": [
                 {
@@ -125,7 +125,7 @@
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "9"
+                        "patch": "7"
                     }
                 },
                 {
@@ -152,7 +152,7 @@
         },
         {
             "position": 4,
-            "comment": "Disto + Chorus + Reverb",
+            "comment": "Plumes + Pantheon + Chorus + Reverb",
             "name": "Bridg2",
             "actions": [
                 {
@@ -162,7 +162,7 @@
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "6"
                     }
                 },
                 {

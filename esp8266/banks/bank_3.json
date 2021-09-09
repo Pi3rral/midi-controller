@@ -4,17 +4,17 @@
     "presets": [
         {
             "position": 0,
-            "comment": "Disto + Reverb",
+            "comment": "Plumes + Pantheon + Reverb",
             "name": "Main",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Disto",
+                    "comment": "Plumes + Pantheon",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "6"
                     }
                 },
                 {
@@ -41,7 +41,7 @@
         },
         {
             "position": 1,
-            "comment": "Disto + Delay",
+            "comment": "Plumes + Pantheon + Delay",
             "name": "Solo-1",
             "actions": [
                 {
@@ -51,7 +51,7 @@
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "6"
                     }
                 },
                 {
@@ -78,17 +78,17 @@
         },
         {
             "position": 2,
-            "comment": "Disto + Reverb",
+            "comment": "Plumes + Pantheon + Reverb",
             "name": "Solo 2",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Disto",
+                    "comment": "Plumes + Pantheon",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "6"
                     }
                 },
                 {
