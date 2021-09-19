@@ -1,20 +1,20 @@
 {
-    "name": "Machinehead",
+    "name": "Boys Of Summer",
     "version": "v1",
     "presets": [
         {
             "position": 0,
-            "name": "Muff",
-            "comment": "Big Muff + Reverb + EQ Muff",
+            "comment": "Plumes + Pantheon + Reverb + EQ Gen",
+            "name": "Main",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Plumes + Pantheon",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "6"
                     }
                 },
                 {
@@ -39,76 +39,29 @@
                 },
                 {
                     "position": 0,
-                    "comment": "EQ Muff",
+                    "comment": "EQ Gen",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "1",
-                        "patch": "5"
+                        "patch": "1"
                     }
                 }
             ]
         },
         {
             "position": 1,
-            "name": "Lead",
-            "comment": "Big Muff + Reverb + EQ Muff Lead",
+            "comment": "Plumes + Pantheon + Delay + EQ Lead",
+            "name": "Solo-1",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Disto",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Terraform Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "0",
-                        "patch": "9"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "EQ Muff Lead",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "1",
                         "patch": "6"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 2,
-            "name": "Bridge",
-            "comment": "Big Muff + Reverb + Delay + EQ Muff Lead",
-            "actions": [
-                {
-                    "position": 0,
-                    "comment": "Big Muff",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "8"
                     }
                 },
                 {
@@ -133,24 +86,165 @@
                 },
                 {
                     "position": 0,
-                    "comment": "EQ Muff Lead",
+                    "comment": "EQ Lead",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "1",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "comment": "Plumes + Pantheon + Reverb + EQ Lead",
+            "name": "Solo 2",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Plumes + Pantheon",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
                         "patch": "6"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "EQ Lead",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "2"
                     }
                 }
             ]
         },
         {
             "position": 3,
-            "comment": "Clean + Reverb",
-            "name": "Clean",
+            "comment": "Plumes + EQ Lead",
+            "name": "Bridge",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "No Loop",
+                    "comment": "Plumes",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "2"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "EQ Lead",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "comment": "Pantheon + Reverb + EQ Gen",
+            "name": "Panth",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Pantheon",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "4"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "EQ Gen",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "comment": "Clean + EQ Gen",
+            "name": "Bridge",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Clean",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -180,7 +274,7 @@
                 },
                 {
                     "position": 0,
-                    "comment": "EQ Generic",
+                    "comment": "EQ Gen",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",

@@ -1,0 +1,156 @@
+{
+    "name": "TF + CO BASICS",
+    "version": "v1",
+    "presets": [
+        {
+            "position": 0,
+            "name": "PHASR",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "name": "CHRUS",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "name": "T-OFF",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "name": "DL+RV",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "name": "RV",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "DL",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 6,
+            "name": "UVIBE",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 7,
+            "name": "FLANG",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 8,
+            "name": "TREM",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "6"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 9,
+            "name": "CHR-2",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "7"
+                    }
+                }
+            ]
+        }
+    ]
+}

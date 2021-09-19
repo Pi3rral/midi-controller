@@ -1,20 +1,20 @@
 {
-    "name": "Machinehead",
+    "name": "Come As You Are",
     "version": "v1",
     "presets": [
         {
             "position": 0,
-            "name": "Muff",
-            "comment": "Big Muff + Reverb + EQ Muff",
+            "comment": "Pitch Fork + Chorus + Reverb",
+            "name": "Verse",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Plumes + Pitch Fork",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "1"
                     }
                 },
                 {
@@ -29,21 +29,11 @@
                 },
                 {
                     "position": 0,
-                    "comment": "Terraform Off",
+                    "comment": "Chorus",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "0",
-                        "patch": "9"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "EQ Muff",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "1",
                         "patch": "5"
                     }
                 }
@@ -51,17 +41,17 @@
         },
         {
             "position": 1,
-            "name": "Lead",
-            "comment": "Big Muff + Reverb + EQ Muff Lead",
+            "comment": "Chorus + Reverb",
+            "name": "Chorus",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Plumes",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
+                        "patch": "0"
                     }
                 },
                 {
@@ -76,86 +66,29 @@
                 },
                 {
                     "position": 0,
-                    "comment": "Terraform Off",
+                    "comment": "Chorus",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "0",
-                        "patch": "9"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "EQ Muff Lead",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "1",
-                        "patch": "6"
+                        "patch": "5"
                     }
                 }
             ]
         },
         {
             "position": 2,
+            "comment": "Plumes + Pantheon + Reverb",
             "name": "Bridge",
-            "comment": "Big Muff + Reverb + Delay + EQ Muff Lead",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Plumes + Pantheon",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
-                        "patch": "8"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Reverb + Delay",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "1"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Terraform Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "0",
-                        "patch": "9"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "EQ Muff Lead",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "1",
                         "patch": "6"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 3,
-            "comment": "Clean + Reverb",
-            "name": "Clean",
-            "actions": [
-                {
-                    "position": 0,
-                    "comment": "No Loop",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "0"
                     }
                 },
                 {
@@ -177,15 +110,116 @@
                         "channel": "0",
                         "patch": "9"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "comment": "Pitch Fork + Plumes + Pantheon + Chorus + Reverb",
+            "name": "Solo",
+            "actions": [
                 {
                     "position": 0,
-                    "comment": "EQ Generic",
+                    "comment": "Pitch Fork + Disto",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "1",
-                        "patch": "1"
+                        "channel": "2",
+                        "patch": "7"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "8"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "comment": "Plumes + Pantheon + Chorus + Reverb",
+            "name": "Bridg2",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Disto",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "6"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "comment": "Pitch Fork + Panth + Chorus + Reverb",
+            "name": "Solo2",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Pitch Fork + Pantheon",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "5"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Chorus",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "8"
                     }
                 }
             ]

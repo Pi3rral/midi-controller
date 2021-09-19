@@ -1,13 +1,15 @@
 {
-    "name": "GoatRoller",
+    "name": "Blister In The Sun",
     "version": "v1",
     "presets": [
         {
             "position": 0,
+            "comment": "Clean + Reverb + EQ Gen",
             "name": "Clean",
             "actions": [
                 {
                     "position": 0,
+                    "comment": "No Loop",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
@@ -17,86 +19,220 @@
                 },
                 {
                     "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "0",
                         "patch": "9"
                     }
-                }
-            ]
-        },
-        {
-            "position": 1,
-            "name": "PLUME",
-            "actions": [
+                },
                 {
                     "position": 0,
+                    "comment": "EQ Gen",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
-                        "patch": "2"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 2,
-            "name": "PANTH",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "4"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 3,
-            "name": "MUFF",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "8"
-                    }
-                }
-            ]
-        },
-        {
-            "position": 4,
-            "name": "PITCH",
-            "actions": [
-                {
-                    "position": 0,
-                    "type": "midi",
-                    "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
+                        "channel": "1",
                         "patch": "1"
                     }
                 }
             ]
         },
         {
-            "position": 5,
-            "name": "PANTH+",
+            "position": 1,
+            "comment": "Pantheon + Reverb + EQ Gen",
+            "name": "Panth",
             "actions": [
                 {
                     "position": 0,
+                    "comment": "Pantheon",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "4"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "EQ Gen",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "comment": "Pantheon + Plumes + Reverb + EQ Gen",
+            "name": "Panth+",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Pantheon + Plumes",
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
                         "channel": "2",
                         "patch": "6"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "EQ Gen",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "comment": "Pantheon + Plumes + Reverb + EQ Lead",
+            "name": "Lead",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Pantheon + Plumes",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "6"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "EQ Lead",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "comment": "Pantheon + Reverb + EQ Lead",
+            "name": "Lead-2",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Pantheon + Plumes",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "2",
+                        "patch": "4"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "0",
+                        "patch": "9"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "EQ Lead",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "2"
                     }
                 }
             ]
