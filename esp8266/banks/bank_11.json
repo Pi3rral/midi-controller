@@ -11,7 +11,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "0"
                     }
                 },
@@ -20,7 +20,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -35,7 +35,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "2"
                     }
                 }
@@ -50,7 +50,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "4"
                     }
                 }
@@ -65,7 +65,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "8"
                     }
                 }
@@ -80,7 +80,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "1"
                     }
                 }
@@ -95,7 +95,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "6"
                     }
                 }

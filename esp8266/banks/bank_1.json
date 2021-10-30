@@ -12,6 +12,7 @@
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
+<<<<<<< HEAD
                         "type": "control_change",
                         "channel": "5",
                         "control": "10",
@@ -27,6 +28,11 @@
                         "channel": "4",
                         "control": "10",
                         "value": "0"
+=======
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "0"
+>>>>>>> 5b37c09 (change port from 0-15 to 1-16. added lived test file)
                     }
                 },
                 {
@@ -35,7 +41,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -45,7 +51,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -61,6 +67,7 @@
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
+<<<<<<< HEAD
                         "type": "control_change",
                         "channel": "5",
                         "control": "10",
@@ -76,6 +83,22 @@
                         "channel": "4",
                         "control": "10",
                         "value": "1"
+=======
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "4"
+>>>>>>> 5b37c09 (change port from 0-15 to 1-16. added lived test file)
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Plumes Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -84,7 +107,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -94,7 +117,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -110,6 +133,7 @@
                     "comment": "Plumes On",
                     "type": "midi",
                     "parameters": {
+<<<<<<< HEAD
                         "type": "control_change",
                         "channel": "5",
                         "control": "10",
@@ -125,6 +149,22 @@
                         "channel": "4",
                         "control": "10",
                         "value": "1"
+=======
+                        "type": "program_change",
+                        "channel": "3",
+                        "patch": "6"
+>>>>>>> 5b37c09 (change port from 0-15 to 1-16. added lived test file)
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Plumes On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "1"
                     }
                 },
                 {
@@ -133,7 +173,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -143,7 +183,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -160,7 +200,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "2"
                     }
                 },
@@ -170,7 +210,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -180,7 +220,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -197,7 +237,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "10"
                     }
                 },
@@ -207,7 +247,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -217,7 +257,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -234,7 +274,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "8"
                     }
                 },
@@ -244,7 +284,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -254,7 +294,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -270,7 +310,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "1"
                     }
                 }
@@ -286,7 +326,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "5"
                     }
                 }
@@ -302,7 +342,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -318,7 +358,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "3"
                     }
                 }
@@ -334,7 +374,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "2"
                     }
                 }
@@ -350,7 +390,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "6"
                     }
                 }

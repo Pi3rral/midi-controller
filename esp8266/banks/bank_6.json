@@ -13,7 +13,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "1"
                     }
                 },
@@ -23,7 +23,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -33,7 +33,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "5"
                     }
                 }
@@ -50,7 +50,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "0"
                     }
                 },
@@ -60,7 +60,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -70,7 +70,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "5"
                     }
                 }
@@ -87,7 +87,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "6"
                     }
                 },
@@ -97,7 +97,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -107,7 +107,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -124,7 +124,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "7"
                     }
                 },
@@ -134,7 +134,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -144,7 +144,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "8"
                     }
                 }
@@ -161,7 +161,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "6"
                     }
                 },
@@ -171,7 +171,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -181,7 +181,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "5"
                     }
                 }
@@ -198,7 +198,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "2",
+                        "channel": "3",
                         "patch": "5"
                     }
                 },
@@ -208,7 +208,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -218,7 +218,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "8"
                     }
                 }
