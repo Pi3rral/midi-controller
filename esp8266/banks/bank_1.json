@@ -9,12 +9,24 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "No Loop",
+                    "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "0"
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "4",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -46,12 +58,24 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pantheon",
+                    "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "4"
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "4",
+                        "control": "10",
+                        "value": "1"
                     }
                 },
                 {
@@ -83,12 +107,24 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pantheon + Plumes",
+                    "comment": "Plumes On",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "6"
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "4",
+                        "control": "10",
+                        "value": "1"
                     }
                 },
                 {
