@@ -9,12 +9,22 @@
             "actions": [
                 {
                     "position": 0,
+                    "comment": "Pitch Fork Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "8",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
-<<<<<<< HEAD
                         "type": "control_change",
-                        "channel": "5",
+                        "channel": "6",
                         "control": "10",
                         "value": "0"
                     }
@@ -25,14 +35,20 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "4",
+                        "channel": "5",
                         "control": "10",
                         "value": "0"
-=======
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "0"
->>>>>>> 5b37c09 (change port from 0-15 to 1-16. added lived test file)
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Big Muff Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "7",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -64,12 +80,22 @@
             "actions": [
                 {
                     "position": 0,
+                    "comment": "Pitch Fork Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "8",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
-<<<<<<< HEAD
                         "type": "control_change",
-                        "channel": "5",
+                        "channel": "6",
                         "control": "10",
                         "value": "0"
                     }
@@ -80,23 +106,18 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "4",
+                        "channel": "5",
                         "control": "10",
                         "value": "1"
-=======
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "4"
->>>>>>> 5b37c09 (change port from 0-15 to 1-16. added lived test file)
                     }
                 },
                 {
                     "position": 0,
-                    "comment": "Plumes Off",
+                    "comment": "Big Muff Off",
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "6",
+                        "channel": "7",
                         "control": "10",
                         "value": "0"
                     }
@@ -130,30 +151,13 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Plumes On",
-                    "type": "midi",
-                    "parameters": {
-<<<<<<< HEAD
-                        "type": "control_change",
-                        "channel": "5",
-                        "control": "10",
-                        "value": "1"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Pantheon On",
+                    "comment": "Pitch Fork Off",
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "4",
+                        "channel": "8",
                         "control": "10",
-                        "value": "1"
-=======
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "6"
->>>>>>> 5b37c09 (change port from 0-15 to 1-16. added lived test file)
+                        "value": "0"
                     }
                 },
                 {
@@ -165,6 +169,28 @@
                         "channel": "6",
                         "control": "10",
                         "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Big Muff Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "7",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -196,12 +222,46 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Plumes",
+                    "comment": "Pitch Fork Off",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "2"
+                        "type": "control_change",
+                        "channel": "8",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Plumes On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Big Muff Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "7",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -228,17 +288,51 @@
         },
         {
             "position": 4,
-            "name": "Muff+",
-            "comment": "Big Muff + Plumes + Reverb",
+            "name": "Muff",
+            "comment": "Big Muff + Reverb",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Pitch Fork Off",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "10"
+                        "type": "control_change",
+                        "channel": "8",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Plumes Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Big Muff On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "7",
+                        "control": "10",
+                        "value": "1"
                     }
                 },
                 {
@@ -265,17 +359,51 @@
         },
         {
             "position": 5,
-            "name": "Muff",
-            "comment": "Big Muff + Reverb",
+            "name": "Fork",
+            "comment": "Pitch Fork + Reverb",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Pitch Fork On",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "3",
-                        "patch": "8"
+                        "type": "control_change",
+                        "channel": "8",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Plumes Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Big Muff Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "7",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
