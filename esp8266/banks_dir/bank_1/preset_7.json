@@ -1,0 +1,1 @@
+{"position": 7, "name": "CHORUS", "comment": "Chorus", "actions": [{"position": 0, "type": "midi", "parameters": {"type": "program_change", "channel": "1", "patch": "5"}}]}

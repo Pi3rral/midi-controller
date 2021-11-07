@@ -12,7 +12,7 @@ from .preset import Preset
 
 class Bank:
 
-    DEFAULT_BANKS_DIRECTORY = "/banks"
+    DEFAULT_BANKS_DIRECTORY = "/banks_dir"
     NB_PHYSICAL_BUTTONS = 6
     NB_PAGES = 2
 
@@ -53,6 +53,30 @@ class Bank:
         self.load_bank()
 
     def load_bank(self):
+        self.load_bank_v1_dir()
+
+    def load_bank_v1_dir(self):
+        bank_dir = self.banks_directory + "/bank_" + str(self.current_bank)
+        nb_preset = len(uos.listdir(bank_dir)) - 1
+        with open(bank_dir + "/bank.json") as fp:
+            bank_data = ujson.load(fp)
+        self.name = bank_data.get("name")
+        self.current_page = 0
+        self.presets = []
+        for i in range(0, nb_preset):
+            gc.collect()
+            with open(bank_dir + "/preset_" + str(i) + ".json") as fp:
+                preset_data = ujson.load(fp)
+            self.presets.append(
+                Preset(preset_data.get("name"), preset_data.get("actions"))
+            )
+        for _ in range(len(self.presets), self.NB_PAGES * self.NB_PHYSICAL_BUTTONS):
+            self.presets.append(Preset("NONE", []))
+        self.presets_name = [preset.get_name() for preset in self.presets]
+        self.is_loaded = True
+        self.load_error = ""
+
+    def load_bank_v1_file(self):
         bank_file = self.banks_directory + "/bank_" + str(self.current_bank) + ".json"
         try:
             with open(bank_file) as fp:
@@ -70,8 +94,8 @@ class Bank:
         except Exception as e:
             self.is_loaded = False
             self.load_error = e.__class__.__name__
+            print(e)
         gc.collect()
-        gc.threshold(gc.mem_free() // 4 + gc.mem_alloc())
 
     def button_pressed(self, button_number):
         self.presets[

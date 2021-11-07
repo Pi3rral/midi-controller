@@ -1,6 +1,7 @@
 import curses
 from time import sleep
 from resource import getrusage, RUSAGE_SELF
+import psutil
 from .controller import Controller
 from .bank import Bank
 from .lcd.lcd_api import LcdApi
@@ -12,7 +13,7 @@ stdscr = curses.initscr()
 
 class PrintMidi:
     def send(self, msg, channel=None):
-        stdscr.addstr(5, 0, f"PrintMIDI send channel {channel}: {msg}")
+        stdscr.addstr(6, 0, f"PrintMIDI send channel {channel}: {msg}")
         stdscr.refresh()
         sleep(2)
         # print(f"PrintMIDI send channel {channel}: {msg}")
@@ -44,7 +45,7 @@ class PrintLcd(LcdApi):
 class ControllerTest(Controller):
     def __init__(self):
         self.bank = Bank(
-            banks_directory="/Users/pleca/Documents/midi-controller/esp8266/banks"
+            banks_directory="/Users/pleca/Documents/midi-controller/esp8266/banks_dir"
         )
         self.lcd = PrintLcd()
         self.print_menu()
@@ -52,6 +53,7 @@ class ControllerTest(Controller):
 
     def read_buttons(self):
         stdscr.addstr(4, 0, f"Memory usage: {getrusage(RUSAGE_SELF).ru_maxrss/1000}")
+        stdscr.addstr(5, 0, f"Memory used: {psutil.virtual_memory()[3]}")
         stdscr.refresh()
         self.button_values = [0, 0, 0, 0, 0, 0, 0, 0]
         button = int(stdscr.getkey())

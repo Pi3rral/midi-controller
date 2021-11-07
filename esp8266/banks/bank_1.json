@@ -9,17 +9,6 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "8",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
@@ -36,17 +25,6 @@
                     "parameters": {
                         "type": "control_change",
                         "channel": "5",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Big Muff Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "7",
                         "control": "10",
                         "value": "0"
                     }
@@ -80,17 +58,6 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "8",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
@@ -109,17 +76,6 @@
                         "channel": "5",
                         "control": "10",
                         "value": "1"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Big Muff Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "7",
-                        "control": "10",
-                        "value": "0"
                     }
                 },
                 {
@@ -151,17 +107,6 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "8",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
                     "comment": "Plumes On",
                     "type": "midi",
                     "parameters": {
@@ -180,17 +125,6 @@
                         "channel": "5",
                         "control": "10",
                         "value": "1"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Big Muff Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "7",
-                        "control": "10",
-                        "value": "0"
                     }
                 },
                 {
@@ -222,17 +156,6 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "8",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
                     "comment": "Plumes On",
                     "type": "midi",
                     "parameters": {
@@ -249,17 +172,6 @@
                     "parameters": {
                         "type": "control_change",
                         "channel": "5",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Big Muff Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "7",
                         "control": "10",
                         "value": "0"
                     }
@@ -293,17 +205,6 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "8",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
@@ -322,17 +223,6 @@
                         "channel": "5",
                         "control": "10",
                         "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Big Muff On",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "7",
-                        "control": "10",
-                        "value": "1"
                     }
                 },
                 {
@@ -364,17 +254,6 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Pitch Fork On",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "8",
-                        "control": "10",
-                        "value": "1"
-                    }
-                },
-                {
-                    "position": 0,
                     "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
@@ -391,17 +270,6 @@
                     "parameters": {
                         "type": "control_change",
                         "channel": "5",
-                        "control": "10",
-                        "value": "0"
-                    }
-                },
-                {
-                    "position": 0,
-                    "comment": "Big Muff Off",
-                    "type": "midi",
-                    "parameters": {
-                        "type": "control_change",
-                        "channel": "7",
                         "control": "10",
                         "value": "0"
                     }
