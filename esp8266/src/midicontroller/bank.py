@@ -17,6 +17,8 @@ class Bank:
     NB_PAGES = 2
 
     def __init__(self, banks_directory=None):
+        self.is_loaded = False
+        self.load_error = ""
         self.max_bank = 0
         self.current_bank = 1
         self.current_page = 0
@@ -35,12 +37,16 @@ class Bank:
         self.current_page = (self.current_page + 1) % self.NB_PAGES
 
     def bank_up(self):
+        self.presets = []
+        gc.collect()
         self.current_bank += 1
         if self.current_bank > self.max_bank:
             self.current_bank = 1
         self.load_bank()
 
     def bank_down(self):
+        self.presets = []
+        gc.collect()
         self.current_bank -= 1
         if self.current_bank <= 0:
             self.current_bank = self.max_bank
@@ -48,17 +54,24 @@ class Bank:
 
     def load_bank(self):
         bank_file = self.banks_directory + "/bank_" + str(self.current_bank) + ".json"
-        with open(bank_file) as fp:
-            bank_data = ujson.load(fp)
-        self.name = bank_data.get("name")
-        self.current_page = 0
-        self.presets = []
-        for preset in bank_data.get("presets"):
-            self.presets.append(Preset(preset.get("name"), preset.get("actions")))
-        for _ in range(len(self.presets), self.NB_PAGES * self.NB_PHYSICAL_BUTTONS):
-            self.presets.append(Preset("NONE", []))
-        self.presets_name = [preset.get_name() for preset in self.presets]
+        try:
+            with open(bank_file) as fp:
+                bank_data = ujson.load(fp)
+            self.name = bank_data.get("name")
+            self.current_page = 0
+            self.presets = []
+            for preset in bank_data.get("presets"):
+                self.presets.append(Preset(preset.get("name"), preset.get("actions")))
+            for _ in range(len(self.presets), self.NB_PAGES * self.NB_PHYSICAL_BUTTONS):
+                self.presets.append(Preset("NONE", []))
+            self.presets_name = [preset.get_name() for preset in self.presets]
+            self.is_loaded = True
+            self.load_error = ""
+        except Exception as e:
+            self.is_loaded = False
+            self.load_error = e.__class__.__name__
         gc.collect()
+        gc.threshold(gc.mem_free() // 4 + gc.mem_alloc())
 
     def button_pressed(self, button_number):
         self.presets[
