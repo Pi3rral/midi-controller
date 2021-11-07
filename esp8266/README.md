@@ -31,10 +31,16 @@ ampy --port /dev/tty.usbserial-1420 run src/main.py
 
 ### Upload file
 
+Don't forget to remove `pyc` files!
+
+```shell
+find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+```
+
 ```shell
 ampy --port /dev/tty.usbserial-1420 put src/wifi.py /wifi.py
 ampy --port /dev/tty.usbserial-1420 put src/midicontroller /midicontroller
-ampy --port /dev/tty.usbserial-1420 put banks /banks
+ampy --port /dev/tty.usbserial-1420 put banks_dir /banks_dir
 ampy --port /dev/tty.usbserial-1420 put src/main.py /main.py
 ```
 
