@@ -13,7 +13,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "5",
+                        "channel": "6",
                         "control": "10",
                         "value": "0"
                     }
@@ -24,7 +24,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "4",
+                        "channel": "5",
                         "control": "10",
                         "value": "0"
                     }
@@ -35,7 +35,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -45,7 +45,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -62,7 +62,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "5",
+                        "channel": "6",
                         "control": "10",
                         "value": "0"
                     }
@@ -73,7 +73,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "4",
+                        "channel": "5",
                         "control": "10",
                         "value": "1"
                     }
@@ -84,7 +84,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -94,7 +94,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -111,7 +111,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "5",
+                        "channel": "6",
                         "control": "10",
                         "value": "1"
                     }
@@ -122,7 +122,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "control_change",
-                        "channel": "4",
+                        "channel": "5",
                         "control": "10",
                         "value": "1"
                     }
@@ -133,7 +133,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -143,7 +143,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -156,12 +156,24 @@
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Plumes",
+                    "comment": "Plumes On",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "2"
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -170,7 +182,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -180,7 +192,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -188,17 +200,29 @@
         },
         {
             "position": 4,
-            "name": "Muff+",
-            "comment": "Big Muff + Plumes + Reverb",
+            "name": "Muff",
+            "comment": "Big Muff + Reverb",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "10"
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -207,7 +231,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -217,7 +241,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -225,17 +249,29 @@
         },
         {
             "position": 5,
-            "name": "Muff",
-            "comment": "Big Muff + Reverb",
+            "name": "Fork",
+            "comment": "Pitch Fork + Reverb",
             "actions": [
                 {
                     "position": 0,
-                    "comment": "Big Muff",
+                    "comment": "Plumes Off",
                     "type": "midi",
                     "parameters": {
-                        "type": "program_change",
-                        "channel": "2",
-                        "patch": "8"
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
                     }
                 },
                 {
@@ -244,7 +280,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "3",
+                        "channel": "4",
                         "patch": "0"
                     }
                 },
@@ -254,7 +290,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -270,7 +306,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "1"
                     }
                 }
@@ -286,7 +322,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "5"
                     }
                 }
@@ -302,7 +338,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "9"
                     }
                 }
@@ -318,7 +354,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "3"
                     }
                 }
@@ -334,7 +370,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "2"
                     }
                 }
@@ -350,7 +386,7 @@
                     "type": "midi",
                     "parameters": {
                         "type": "program_change",
-                        "channel": "0",
+                        "channel": "1",
                         "patch": "6"
                     }
                 }

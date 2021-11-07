@@ -23,6 +23,14 @@ class Controller:
     def print_menu(self):
         if not self.lcd:
             return
+        if not self.bank.is_loaded:
+            self.lcd.clear()
+            self.lcd.move_to(0, 0)
+            self.lcd.putstr("Error Loading Bank " + str(self.bank.current_bank))
+            self.lcd.move_to(0, 1)
+            self.lcd.putstr(self.bank.load_error)
+            return
+
         patch_names = self.bank.get_current_presets_names()
         self.lcd.clear()
         self.lcd.move_to(0, 3)

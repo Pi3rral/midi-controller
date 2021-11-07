@@ -20,7 +20,7 @@ pip install -r requirements.txt
 
 ```shell
 python -m esptool --port /dev/tty.usbserial-1420 erase_flash
-python -m esptool --port /dev/tty.usbserial-1420 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210202-v1.14.bin
+python -m esptool --port /dev/tty.usbserial-1420 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210902-v1.17.bin
 ```
 
 ### Test live

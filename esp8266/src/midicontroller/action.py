@@ -26,19 +26,23 @@ class Action:
             self.do_midi_action()
 
     def do_midi_action(self):
+        # remove 1 to the channel to be compliant with everything else
+        # channel 1-16 in json file -> channel 0-15 in data transmission
+        channel = int(self.parameters["channel"]) - 1
+        if channel < 0 or channel > 15:
+            print("Channel must be between 1 and 16")
+            return
         if self.parameters["type"] == MIDIMessage.PROGRAM_CHANGE:
             message = ProgramChange(
                 patch=int(self.parameters["patch"]),
-                channel=int(self.parameters["channel"]),
+                channel=channel,
             )
-            channel = int(self.parameters["channel"])
         elif self.parameters["type"] == MIDIMessage.CONTROL_CHANGE:
             message = ControlChange(
                 control=int(self.parameters["control"]),
                 value=int(self.parameters["value"]),
-                channel=int(self.parameters["channel"]),
+                channel=channel,
             )
-            channel = int(self.parameters["channel"])
         else:
             return
         # print(self.parameters)

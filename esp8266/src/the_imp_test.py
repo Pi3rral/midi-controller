@@ -147,7 +147,7 @@ def the_imp_test(channel):
 #     test_on_channel(i)
 
 # Settings for Wampler Pantheon
-the_imp_channel = 4
+the_imp_channel = 5
 # the_imp_change_boot(the_imp_channel, 15)
 # the_imp_reverse_polarity(the_imp_channel)
 # the_imp_change_led_threshold(the_imp_channel, 68)
