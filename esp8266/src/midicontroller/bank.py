@@ -20,18 +20,20 @@ class Bank:
         self.is_loaded = False
         self.load_error = ""
         self.max_bank = 0
-        self.current_bank = 1
+        self.banks = []
+        self.current_bank = 0
         self.current_page = 0
         self.current_preset = 1
         self.presets = []
         self.presets_name = []
         self.name = None
         self.banks_directory = banks_directory or self.DEFAULT_BANKS_DIRECTORY
-        self.set_max_bank()
+        self.set_banks()
         self.load_bank()
 
-    def set_max_bank(self):
-        self.max_bank = len(uos.listdir(self.banks_directory))
+    def set_banks(self):
+        self.banks = sorted(uos.listdir(self.banks_directory))
+        self.max_bank = len(self.banks)
 
     def swap_page(self):
         self.current_page = (self.current_page + 1) % self.NB_PAGES
@@ -40,23 +42,23 @@ class Bank:
         self.presets = []
         gc.collect()
         self.current_bank += 1
-        if self.current_bank > self.max_bank:
-            self.current_bank = 1
+        if self.current_bank >= self.max_bank:
+            self.current_bank = 0
         self.load_bank()
 
     def bank_down(self):
         self.presets = []
         gc.collect()
         self.current_bank -= 1
-        if self.current_bank <= 0:
-            self.current_bank = self.max_bank
+        if self.current_bank < 0:
+            self.current_bank = self.max_bank - 1
         self.load_bank()
 
     def load_bank(self):
         self.load_bank_v1_dir()
 
     def load_bank_v1_dir(self):
-        bank_dir = self.banks_directory + "/bank_" + str(self.current_bank)
+        bank_dir = self.banks_directory + "/" + self.banks[self.current_bank]
         nb_preset = len(uos.listdir(bank_dir)) - 1
         with open(bank_dir + "/bank.json") as fp:
             bank_data = ujson.load(fp)
@@ -75,6 +77,7 @@ class Bank:
         self.presets_name = [preset.get_name() for preset in self.presets]
         self.is_loaded = True
         self.load_error = ""
+        gc.collect()
 
     def load_bank_v1_file(self):
         bank_file = self.banks_directory + "/bank_" + str(self.current_bank) + ".json"
