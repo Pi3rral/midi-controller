@@ -3,7 +3,7 @@ from machine import Pin, I2C
 from .controller import Controller
 from .bank import Bank
 from .lcd.esp8266_i2c_lcd import I2cLcd
-from .midi.ports import ESP8266TX1Port
+from .midi.ports import ESP8266TXPort
 from .midi.adafruit_midi import MIDI
 from .midi import MidiPort
 
@@ -20,7 +20,7 @@ class ESP8266Controller(Controller):
         self.clk_pin.value(0)
 
         # init midi
-        midi_port = ESP8266TX1Port()
+        midi_port = ESP8266TXPort(enable_tx0=False, enable_tx1=True)
         midi = MIDI(midi_out=midi_port)
         MidiPort.midi_object = midi
 
