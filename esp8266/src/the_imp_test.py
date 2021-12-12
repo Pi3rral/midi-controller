@@ -1,14 +1,14 @@
 import wifi
 from midicontroller.midi import MidiPort
 from midicontroller.midi.adafruit_midi import MIDI
-from midicontroller.midi.ports import ESP8266TX1Port
+from midicontroller.midi.ports import ESP8266TXPort
 from midicontroller.action import Action
 from utime import sleep_ms
 
 wifi.no_wifi()
 
 
-midi_port = ESP8266TX1Port()
+midi_port = ESP8266TXPort(enable_tx1=True)
 midi = MIDI(midi_out=midi_port)
 MidiPort.midi_object = midi
 

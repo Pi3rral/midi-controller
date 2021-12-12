@@ -1,3 +1,8 @@
+try:
+    import uasyncio as asyncio
+except ImportError:
+    import asyncio
+
 import curses
 from time import sleep
 from resource import getrusage, RUSAGE_SELF
@@ -24,6 +29,7 @@ class PrintLcd(LcdApi):
         super().__init__(0, 0)
         curses.noecho()
         curses.cbreak()
+        stdscr.timeout(100)
 
     def __del__(self):
         curses.endwin()
@@ -52,21 +58,25 @@ class ControllerTest(Controller):
         MidiPort.midi_object = PrintMidi()
 
     def read_buttons(self):
-        stdscr.addstr(4, 0, f"Memory usage: {getrusage(RUSAGE_SELF).ru_maxrss/1000}")
-        stdscr.addstr(5, 0, f"Memory used: {psutil.virtual_memory()[3]}")
-        stdscr.refresh()
+        # stdscr.addstr(4, 0, f"Memory usage: {getrusage(RUSAGE_SELF).ru_maxrss/1000}")
+        # stdscr.addstr(5, 0, f"Memory used: {psutil.virtual_memory()[3]}")
+        # stdscr.refresh()
         self.button_values = [0, 0, 0, 0, 0, 0, 0, 0]
-        button = int(stdscr.getkey())
-        if button > 9:
-            return False
-        elif button == 9:
-            self.button_values[6] = 1
-            self.button_values[7] = 1
-        else:
-            self.button_values[button - 1] = 1
-        return True
+        try:
+            button = int(stdscr.getkey())
+            if button > 9:
+                return False
+            elif button == 9:
+                self.button_values[6] = 1
+                self.button_values[7] = 1
+            else:
+                self.button_values[button - 1] = 1
+            return True
+        except Exception as e:
+            pass
+        return False
 
-
-if __name__ == "__main__":
-    app = ControllerTest()
-    app.main()
+    async def main(self):
+        while True:
+            self.loop()
+            await asyncio.sleep(0.01)
