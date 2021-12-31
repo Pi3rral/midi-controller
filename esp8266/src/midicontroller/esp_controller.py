@@ -1,10 +1,10 @@
-# try:
-#     import uasyncio as asyncio
-# except ImportError:
-#     import asyncio
+try:
+    import uasyncio as asyncio
+except ImportError:
+    import asyncio
 
 from utime import sleep_us, sleep_ms
-from machine import Pin, I2C
+from machine import Pin, SoftI2C
 from .controller import Controller
 from .bank import Bank
 from .lcd.esp8266_i2c_lcd import I2cLcd
@@ -17,11 +17,19 @@ PULSE_WIDTH_USEC = 5
 
 
 class ESP8266Controller(Controller):
+
+    pin_scl = 5
+    pin_sda = 4
+    pin_pl = 14
+    pin_clk = 12
+    pin_data = 13
+    lcd_address = 0x3F
+
     def __init__(self):
         # init pins
-        self.pl_pin = Pin(14, Pin.OUT)
-        self.clk_pin = Pin(12, Pin.OUT)
-        self.data_pin = Pin(13, Pin.IN)
+        self.pl_pin = Pin(self.pin_pl, Pin.OUT)
+        self.clk_pin = Pin(self.pin_clk, Pin.OUT)
+        self.data_pin = Pin(self.pin_data, Pin.IN)
         self.clk_pin.value(0)
 
         # init midi
@@ -31,7 +39,12 @@ class ESP8266Controller(Controller):
 
         # init bank and LCD
         self.bank = Bank()
-        self.lcd = I2cLcd(I2C(scl=Pin(5), sda=Pin(4)), 0x3F, 4, 20)
+        self.lcd = I2cLcd(
+            SoftI2C(scl=Pin(self.pin_scl), sda=Pin(self.pin_sda)),
+            self.lcd_address,
+            4,
+            20,
+        )
         self.print_menu()
 
     def read_buttons(self):
@@ -52,6 +65,19 @@ class ESP8266Controller(Controller):
 
     def wait_bounce(self):
         sleep_ms(200)
+
+
+class ESP32Controller(ESP8266Controller):
+    pin_scl = 22
+    pin_sda = 21
+    lcd_address = 0x27
+
+    def read_buttons(self):
+        return False
+
+    def wait_bounce(self):
+        pass
+        # asyncio.sleep(0.2)
 
 
 # class ESP8266ControllerAsyncio(ESP8266Controller):
