@@ -68,6 +68,12 @@ class Controller:
             self.wait_bounce()
             self.print_menu()
 
+    def bank_up(self):
+        self.bank.bank_up()
+
+    def bank_down(self):
+        self.bank.bank_down()
+
     def main(self):
         while True:
             self.loop()

@@ -3,25 +3,30 @@ try:
 except ImportError:
     import asyncio
 
-from midicontroller.controller_test import ControllerTest
-
-app = ControllerTest()
+from midicontroller.controller_test import midi_controller
 
 from webserver import web
 
 
 async def midicontroller():
-    await app.main()
+    while True:
+        midi_controller.loop()
+        # print("Midi controller await 4000ms")
+        await asyncio.sleep(0.004)
+        # print("Midi controller bank up")
+        # app.bank.bank_up()
+        # app.print_menu()
 
 
 async def webserver():
-    await web.start_server(debug=True)
+    await web.start_server(debug=False)
 
 
 async def main():
-    w = asyncio.create_task(webserver())
-    m = asyncio.create_task(midicontroller())
-    await asyncio.gather(w, m)
+    asyncio.create_task(midicontroller())
+    asyncio.create_task(webserver())
+    while True:
+        await asyncio.sleep(10)
 
 
 asyncio.run(main())

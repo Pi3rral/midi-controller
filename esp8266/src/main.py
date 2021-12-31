@@ -11,11 +11,9 @@ from webserver import web
 wifi.connect_home_wifi()
 
 app = ESP32Controller()
-# app.main()
 
 
 async def midicontroller():
-    # app = ESP32Controller()
     while True:
         app.loop()
         print("Midi controller await 4000ms")
@@ -23,7 +21,6 @@ async def midicontroller():
         print("Midi controller bank up")
         app.bank.bank_up()
         app.print_menu()
-    # app.main()
 
 
 async def webserver():
@@ -32,15 +29,10 @@ async def webserver():
 
 
 async def main():
-    m = asyncio.create_task(midicontroller())
-    w = asyncio.create_task(webserver())
+    asyncio.create_task(midicontroller())
+    asyncio.create_task(webserver())
     while True:
         await asyncio.sleep(10)
-    # await asyncio.gather(w, m)
-    # await asyncio.gather(w)
-    # await asyncio.gather(m)
 
-
-# asyncio.run(web.start_server(debug=True))
 
 asyncio.run(main())

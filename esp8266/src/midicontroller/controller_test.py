@@ -60,7 +60,7 @@ class ControllerTest(Controller):
     def read_buttons(self):
         # stdscr.addstr(4, 0, f"Memory usage: {getrusage(RUSAGE_SELF).ru_maxrss/1000}")
         # stdscr.addstr(5, 0, f"Memory used: {psutil.virtual_memory()[3]}")
-        # stdscr.refresh()
+        stdscr.refresh()
         self.button_values = [0, 0, 0, 0, 0, 0, 0, 0]
         try:
             button = int(stdscr.getkey())
@@ -76,7 +76,5 @@ class ControllerTest(Controller):
             pass
         return False
 
-    async def main(self):
-        while True:
-            self.loop()
-            await asyncio.sleep(0.01)
+
+midi_controller = ControllerTest()
