@@ -15,12 +15,14 @@ def connect_home_wifi():
         if sta_if.isconnected():
             print("Connected to home: {}".format(sta_if.ifconfig()[0]))
             ap_if.active(False)
-            return
+            address = "IP: {}".format(sta_if.ifconfig()[0])
+            return address
     sta_if.active(False)
     ap_if.active(True)
     print("Could not connect to home, Creating MiGoat access point")
     ap_if.config(essid="MiGoat", password="GoatFather")
     sleep_ms(5000)
+    return "MiGoat access point created"
 
 
 def no_wifi():

@@ -77,4 +77,4 @@ class ControllerTest(Controller):
         return False
 
 
-midi_controller = ControllerTest()
+midi_controller_test = ControllerTest()

@@ -4,28 +4,22 @@ except ImportError:
     import asyncio
 
 import wifi
-from midicontroller.esp_controller import ESP32Controller
+from midicontroller.esp_controller_asyncio import midi_controller
 
 from webserver import web
 
-wifi.connect_home_wifi()
-
-app = ESP32Controller()
+address = wifi.connect_home_wifi()
+midi_controller.splash_screen(address, 3)
 
 
 async def midicontroller():
     while True:
-        app.loop()
-        print("Midi controller await 4000ms")
-        await asyncio.sleep_ms(4000)
-        print("Midi controller bank up")
-        app.bank.bank_up()
-        app.print_menu()
+        midi_controller.loop()
+        await asyncio.sleep(0.005)
 
 
 async def webserver():
     await web.start_server(debug=True)
-    print("Webserver end!")
 
 
 async def main():

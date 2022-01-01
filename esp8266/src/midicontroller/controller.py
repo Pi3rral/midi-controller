@@ -1,3 +1,4 @@
+from time import sleep
 from .bank import Bank
 
 
@@ -19,6 +20,9 @@ class Controller:
 
     def wait_bounce(self):
         pass
+
+    def wait(self, seconds):
+        sleep(seconds)
 
     def print_menu(self):
         if not self.lcd:
@@ -51,6 +55,15 @@ class Controller:
         self.lcd.putstr(patch_names[4])
         self.lcd.move_to(20 - len(patch_names[5]), 0)
         self.lcd.putstr(patch_names[5])
+
+    def splash_screen(self, message, seconds):
+        if not self.lcd:
+            return
+        self.lcd.clear()
+        self.lcd.move_to(0, 0)
+        self.lcd.putstr(message)
+        self.wait(seconds)
+        self.print_menu()
 
     def loop(self):
         if self.read_buttons():

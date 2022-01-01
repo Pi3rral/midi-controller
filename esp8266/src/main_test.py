@@ -3,7 +3,8 @@ try:
 except ImportError:
     import asyncio
 
-from midicontroller.controller_test import midi_controller
+from midicontroller.controller_test import midi_controller_test as midi_controller
+
 
 from webserver import web
 

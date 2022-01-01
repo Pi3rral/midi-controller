@@ -1,8 +1,3 @@
-try:
-    import uasyncio as asyncio
-except ImportError:
-    import asyncio
-
 from utime import sleep_us, sleep_ms
 from machine import Pin, SoftI2C
 from .controller import Controller
@@ -16,7 +11,7 @@ from .midi import MidiPort
 PULSE_WIDTH_USEC = 5
 
 
-class ESP8266Controller(Controller):
+class ESPController(Controller):
 
     pin_scl = 5
     pin_sda = 4
@@ -67,6 +62,16 @@ class ESP8266Controller(Controller):
         sleep_ms(200)
 
 
+class ESP8266Controller(ESPController):
+
+    pin_scl = 5
+    pin_sda = 4
+    pin_pl = 14
+    pin_clk = 12
+    pin_data = 13
+    lcd_address = 0x3F
+
+
 class ESP32Controller(ESP8266Controller):
     pin_scl = 22
     pin_sda = 21
@@ -74,10 +79,6 @@ class ESP32Controller(ESP8266Controller):
 
     def read_buttons(self):
         return False
-
-    def wait_bounce(self):
-        pass
-        # asyncio.sleep(0.2)
 
 
 # class ESP8266ControllerAsyncio(ESP8266Controller):
