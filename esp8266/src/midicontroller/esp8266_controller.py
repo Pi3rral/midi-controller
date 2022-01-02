@@ -1,8 +1,3 @@
-# try:
-#     import uasyncio as asyncio
-# except ImportError:
-#     import asyncio
-
 from utime import sleep_us, sleep_ms
 from machine import Pin, I2C
 from .controller import Controller
@@ -52,13 +47,3 @@ class ESP8266Controller(Controller):
 
     def wait_bounce(self):
         sleep_ms(200)
-
-
-# class ESP8266ControllerAsyncio(ESP8266Controller):
-#     def wait_bounce(self):
-#         asyncio.sleep(0.2)
-
-#     async def main(self):
-#         while True:
-#             self.loop()
-#             await asyncio.sleep(0.01)

@@ -1,8 +1,3 @@
-try:
-    import uasyncio as asyncio
-except ImportError:
-    import asyncio
-
 import curses
 from time import sleep
 from resource import getrusage, RUSAGE_SELF
@@ -75,8 +70,3 @@ class ControllerTest(Controller):
         except Exception as e:
             pass
         return False
-
-    async def main(self):
-        while True:
-            self.loop()
-            await asyncio.sleep(0.01)
