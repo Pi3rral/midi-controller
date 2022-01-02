@@ -82,25 +82,26 @@ class Bank:
     def get_bank_info(self, bank_number):
         if bank_number <= 0 or bank_number > self.max_bank:
             raise Exception(
-                "Invalid Bank Number. Must be between 0 and {}".format(self.max_bank)
+                "Invalid Bank Number. Must be between 1 and {}".format(self.max_bank)
             )
         bank_dir = self.banks_directory + "/" + self.banks[bank_number - 1]
         with open(bank_dir + "/bank.json") as fp:
             bank_data = ujson.load(fp)
+        bank_data["nb_preset"] = len(uos.listdir(bank_dir)) - 1
         return bank_data
 
     def get_preset_info(self, bank_number, preset_number):
         if bank_number <= 0 or bank_number > self.max_bank:
             raise Exception(
-                "Invalid Bank Number. Must be between 0 and {}".format(self.max_bank)
+                "Invalid Bank Number. Must be between 1 and {}".format(self.max_bank)
             )
         bank_dir = self.banks_directory + "/" + self.banks[bank_number - 1]
         nb_preset = len(uos.listdir(bank_dir)) - 1
-        if nb_preset <= 0 or bank_number > nb_preset:
+        if preset_number <= 0 or preset_number > nb_preset:
             raise Exception(
-                "Invalid Preset Number. Must be between 0 and {}".format(nb_preset)
+                "Invalid Preset Number. Must be between 1 and {}".format(nb_preset)
             )
-        with open(bank_dir + "/preset_" + str(preset_number) + ".json") as fp:
+        with open(bank_dir + "/preset_" + str(preset_number - 1) + ".json") as fp:
             preset_data = ujson.load(fp)
         return preset_data
 
