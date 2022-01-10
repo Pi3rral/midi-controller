@@ -19,14 +19,14 @@ pip install -r requirements.txt
 ### Flash firmware
 
 ```shell
-python -m esptool --port /dev/tty.usbserial-1420 erase_flash
-python -m esptool --port /dev/tty.usbserial-1420 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210902-v1.17.bin
+python -m esptool --port /dev/tty.usbserial-1430 erase_flash
+python -m esptool --port /dev/tty.usbserial-1430 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210902-v1.17.bin
 ```
 
 ### Test live
 
 ```shell
-ampy --port /dev/tty.usbserial-1420 run src/main.py
+ampy --port /dev/tty.usbserial-1430 run src/main.py
 ```
 
 ### Upload file
@@ -38,10 +38,10 @@ find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 ```
 
 ```shell
-ampy --port /dev/tty.usbserial-1420 put src/wifi.py /wifi.py
-ampy --port /dev/tty.usbserial-1420 put src/midicontroller /midicontroller
-ampy --port /dev/tty.usbserial-1420 put banks_dir /banks_dir
-ampy --port /dev/tty.usbserial-1420 put src/main.py /main.py
+ampy --port /dev/tty.usbserial-1430 put src/wifi.py /wifi.py
+ampy --port /dev/tty.usbserial-1430 put src/midicontroller /midicontroller
+ampy --port /dev/tty.usbserial-1430 put banks_dir /banks_dir
+ampy --port /dev/tty.usbserial-1430 put src/main.py /main.py
 ```
 
 ### Connect to REPL
@@ -49,14 +49,14 @@ ampy --port /dev/tty.usbserial-1420 put src/main.py /main.py
 #### Using `screen`
 
 ```shell
-screen /dev/tty.usbserial-1420 115200
+screen /dev/tty.usbserial-1430 115200
 ```
 exit with `Ctrl-A; Ctrl-\`
 
 #### Using `rshell`
 
 ```shell
-rshell -p /dev/tty.usbserial-1420
+rshell -p /dev/tty.usbserial-1430
 ```
 exit with `Ctrl-D`
 

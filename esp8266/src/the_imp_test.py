@@ -1,14 +1,14 @@
 import wifi
 from midicontroller.midi import MidiPort
 from midicontroller.midi.adafruit_midi import MIDI
-from midicontroller.midi.ports import ESP8266TX1Port
+from midicontroller.midi.ports import ESP8266TXPort
 from midicontroller.action import Action
 from utime import sleep_ms
 
 wifi.no_wifi()
 
 
-midi_port = ESP8266TX1Port()
+midi_port = ESP8266TXPort(enable_tx1=True)
 midi = MIDI(midi_out=midi_port)
 MidiPort.midi_object = midi
 
@@ -143,12 +143,18 @@ def the_imp_test(channel):
     print("------------------------")
 
 
-# for i in range(0, 16):
-#     test_on_channel(i)
+# for i in range(1, 17):
+#     the_imp_test(i)
 
 # Settings for Wampler Pantheon
-the_imp_channel = 5
+# the_imp_channel = 5
 # the_imp_change_boot(the_imp_channel, 15)
 # the_imp_reverse_polarity(the_imp_channel)
 # the_imp_change_led_threshold(the_imp_channel, 68)
+
+# Settings for Pitch Fork
+the_imp_channel = 3
+# the_imp_change_led_threshold(the_imp_channel, 44)
+# the_imp_reverse_polarity(the_imp_channel)
+# the_imp_change_boot(the_imp_channel, 15)
 the_imp_test(the_imp_channel)
