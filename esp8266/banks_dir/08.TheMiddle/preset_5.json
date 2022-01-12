@@ -1,1 +1,81 @@
-{"position": 4, "comment": "Pantheon + Phaser + Reverb + EQ Lead", "name": "Post", "actions": [{"position": 0, "comment": "Pitch Fork Off", "type": "midi", "parameters": {"type": "control_change", "channel": "8", "control": "10", "value": "0"}}, {"position": 0, "comment": "Plumes Off", "type": "midi", "parameters": {"type": "control_change", "channel": "6", "control": "10", "value": "0"}}, {"position": 0, "comment": "Pantheon On", "type": "midi", "parameters": {"type": "control_change", "channel": "5", "control": "10", "value": "1"}}, {"position": 0, "comment": "Big Muff Off", "type": "midi", "parameters": {"type": "control_change", "channel": "7", "control": "10", "value": "0"}}, {"position": 0, "comment": "Reverb", "type": "midi", "parameters": {"type": "program_change", "channel": "4", "patch": "0"}}, {"position": 0, "comment": "Terraform Phaser", "type": "midi", "parameters": {"type": "program_change", "channel": "1", "patch": "1"}}, {"position": 0, "comment": "EQ Lead", "type": "midi", "parameters": {"type": "program_change", "channel": "2", "patch": "2"}}]}
+{
+    "position": 4,
+    "comment": "Pantheon + Phaser + Reverb + EQ Lead",
+    "name": "Post",
+    "actions": [
+        {
+            "position": 0,
+            "comment": "Pitch Fork Off",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "3",
+                "control": "10",
+                "value": "0"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "Plumes Off",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "6",
+                "control": "10",
+                "value": "0"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "Pantheon On",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "5",
+                "control": "10",
+                "value": "1"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "Big Muff Off",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "7",
+                "control": "10",
+                "value": "0"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "Reverb",
+            "type": "midi",
+            "parameters": {
+                "type": "program_change",
+                "channel": "4",
+                "patch": "0"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "Terraform Phaser",
+            "type": "midi",
+            "parameters": {
+                "type": "program_change",
+                "channel": "1",
+                "patch": "1"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "EQ Lead",
+            "type": "midi",
+            "parameters": {
+                "type": "program_change",
+                "channel": "2",
+                "patch": "2"
+            }
+        }
+    ]
+}

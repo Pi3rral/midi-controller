@@ -9,7 +9,7 @@
             "type": "midi",
             "parameters": {
                 "type": "control_change",
-                "channel": "8",
+                "channel": "3",
                 "control": "10",
                 "value": "0"
             }
