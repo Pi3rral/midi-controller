@@ -151,10 +151,17 @@ def the_imp_test(channel):
 # the_imp_change_boot(the_imp_channel, 15)
 # the_imp_reverse_polarity(the_imp_channel)
 # the_imp_change_led_threshold(the_imp_channel, 68)
+# the_imp_test(the_imp_channel)
+
+# Settings for Wampler Sovereign
+the_imp_channel = 8
+# the_imp_change_led_threshold(the_imp_channel, 68)
+# the_imp_reverse_polarity(the_imp_channel)
+the_imp_test(the_imp_channel)
 
 # Settings for Pitch Fork
-the_imp_channel = 3
+# the_imp_channel = 3
 # the_imp_change_led_threshold(the_imp_channel, 44)
 # the_imp_reverse_polarity(the_imp_channel)
 # the_imp_change_boot(the_imp_channel, 15)
-the_imp_test(the_imp_channel)
+# the_imp_test(the_imp_channel)
