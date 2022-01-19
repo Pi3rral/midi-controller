@@ -1,1 +1,5 @@
-{"name": "Generic", "version": "v1"}
+{
+    "name": "Generic",
+    "version": "v1",
+    "on_load_preset": 0
+}

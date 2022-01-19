@@ -77,6 +77,9 @@ class Bank:
         self.presets_name = [preset.get_name() for preset in self.presets]
         self.is_loaded = True
         self.load_error = ""
+        on_load_preset = bank_data.get("on_load_preset", None)
+        if on_load_preset is not None:
+            self.button_pressed(on_load_preset)
         gc.collect()
 
     def load_bank_v1_file(self):
