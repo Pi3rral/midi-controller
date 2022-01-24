@@ -1,8 +1,8 @@
 import wifi
 from midicontroller.midi import MidiPort
 from midicontroller.midi.adafruit_midi import MIDI
+from midicontroller.midi.adafruit_midi.control_change import ControlChange
 from midicontroller.midi.ports import ESP8266TXPort
-from midicontroller.action import Action
 from utime import sleep_ms
 
 wifi.no_wifi()
@@ -13,32 +13,43 @@ midi = MIDI(midi_out=midi_port)
 MidiPort.midi_object = midi
 
 
+def do_midi_action(parameters):
+    # remove 1 to the channel to be compliant with everything else
+    # channel 1-16 in json file -> channel 0-15 in data transmission
+    channel = int(parameters["channel"]) - 1
+    if channel < 0 or channel > 15:
+        print("Channel must be between 1 and 16")
+        return
+    message = ControlChange(
+        control=int(parameters["control"]),
+        value=int(parameters["value"]),
+        channel=channel,
+    )
+    MidiPort.send(message, channel)
+
+
 def the_imp_change_boot(channel, n):
     print("------------------------")
     print("change boot on channel " + str(channel))
-    message_1 = Action(
-        "midi",
+    message_1 = (
         {"type": "control_change", "channel": channel, "control": "8", "value": n},
     )
-    message_2 = Action(
-        "midi",
+    message_2 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "18"},
     )
-    message_3 = Action(
-        "midi",
+    message_3 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "52"},
     )
-    message_4 = Action(
-        "midi",
+    message_4 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "0"},
     )
-    message_1.do_action()
+    do_midi_action(message_1)
     sleep_ms(100)
-    message_2.do_action()
+    do_midi_action(message_2)
     sleep_ms(100)
-    message_3.do_action()
+    do_midi_action(message_3)
     sleep_ms(100)
-    message_4.do_action()
+    do_midi_action(message_4)
     sleep_ms(100)
     print("done")
     print("------------------------")
@@ -47,29 +58,25 @@ def the_imp_change_boot(channel, n):
 def the_imp_reverse_polarity(channel):
     print("------------------------")
     print("reverse polarity on channel " + str(channel))
-    message_1 = Action(
-        "midi",
+    message_1 = (
         {"type": "control_change", "channel": channel, "control": "19", "value": "95"},
     )
-    message_2 = Action(
-        "midi",
+    message_2 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "18"},
     )
-    message_3 = Action(
-        "midi",
+    message_3 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "52"},
     )
-    message_4 = Action(
-        "midi",
+    message_4 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "1"},
     )
-    message_1.do_action()
+    do_midi_action(message_1)
     sleep_ms(100)
-    message_2.do_action()
+    do_midi_action(message_2)
     sleep_ms(100)
-    message_3.do_action()
+    do_midi_action(message_3)
     sleep_ms(100)
-    message_4.do_action()
+    do_midi_action(message_4)
     sleep_ms(100)
     print("done")
     print("------------------------")
@@ -78,8 +85,7 @@ def the_imp_reverse_polarity(channel):
 def the_imp_change_led_threshold(channel, threshold):
     print("------------------------")
     print("change let threshold on channel " + str(channel))
-    message_1 = Action(
-        "midi",
+    message_1 = (
         {
             "type": "control_change",
             "channel": channel,
@@ -87,25 +93,22 @@ def the_imp_change_led_threshold(channel, threshold):
             "value": threshold,
         },
     )
-    message_2 = Action(
-        "midi",
+    message_2 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "18"},
     )
-    message_3 = Action(
-        "midi",
+    message_3 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "52"},
     )
-    message_4 = Action(
-        "midi",
+    message_4 = (
         {"type": "control_change", "channel": channel, "control": "9", "value": "2"},
     )
-    message_1.do_action()
+    do_midi_action(message_1)
     sleep_ms(100)
-    message_2.do_action()
+    do_midi_action(message_2)
     sleep_ms(100)
-    message_3.do_action()
+    do_midi_action(message_3)
     sleep_ms(100)
-    message_4.do_action()
+    do_midi_action(message_4)
     sleep_ms(100)
     print("done")
     print("------------------------")
@@ -114,30 +117,28 @@ def the_imp_change_led_threshold(channel, threshold):
 def the_imp_test(channel):
     print("------------------------")
     print("test channel " + str(channel))
-    pedal_on = Action(
-        "midi",
+    pedal_on = (
         {"type": "control_change", "channel": channel, "control": "10", "value": "1"},
     )
-    pedal_off = Action(
-        "midi",
+    pedal_off = (
         {"type": "control_change", "channel": channel, "control": "10", "value": "0"},
     )
     print("sleep 1s")
     sleep_ms(1000)
     print("Pedal On")
-    pedal_on.do_action()
+    do_midi_action(pedal_on)
     print("sleep 2s")
     sleep_ms(2000)
     print("Pedal Off")
-    pedal_off.do_action()
+    do_midi_action(pedal_off)
     print("sleep 2s")
     sleep_ms(2000)
     print("Pedal On")
-    pedal_on.do_action()
+    do_midi_action(pedal_on)
     print("sleep 2s")
     sleep_ms(2000)
     print("Pedal Off")
-    pedal_off.do_action()
+    do_midi_action(pedal_off)
     print("sleep 1s")
     sleep_ms(1000)
     print("------------------------")
