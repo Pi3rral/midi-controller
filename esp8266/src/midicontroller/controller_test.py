@@ -3,7 +3,6 @@ from time import sleep
 from resource import getrusage, RUSAGE_SELF
 import psutil
 from .controller import Controller
-from .bank import Bank
 from .lcd.lcd_api import LcdApi
 from .midi import MidiPort
 
@@ -15,7 +14,7 @@ class PrintMidi:
     def send(self, msg, channel=None):
         stdscr.addstr(6, 0, f"PrintMIDI send channel {channel}: {msg}")
         stdscr.refresh()
-        sleep(2)
+        sleep(1)
         # print(f"PrintMIDI send channel {channel}: {msg}")
 
 
@@ -43,14 +42,14 @@ class PrintLcd(LcdApi):
         stdscr.refresh()
 
 
+MidiPort.midi_object = PrintMidi()
+
+
 class ControllerTest(Controller):
-    def __init__(self):
-        self.bank = Bank(
-            banks_directory="/Users/pleca/Documents/midi-controller/esp8266/banks_dir"
-        )
+    banks_directory = "/Users/pleca/Documents/midi-controller/esp8266/banks_dir"
+
+    def init_lcd(self):
         self.lcd = PrintLcd()
-        self.print_menu()
-        MidiPort.midi_object = PrintMidi()
 
     def read_buttons(self):
         # stdscr.addstr(4, 0, f"Memory usage: {getrusage(RUSAGE_SELF).ru_maxrss/1000}")
