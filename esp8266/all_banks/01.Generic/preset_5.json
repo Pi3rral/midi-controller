@@ -1,7 +1,7 @@
 {
-    "position": 3,
-    "comment": "Sovereign + Reverb + EQ Lead",
+    "position": 5,
     "name": "Lead",
+    "comment": "Sovereign + EQ Lead",
     "actions": [
         {
             "position": 0,
@@ -38,7 +38,7 @@
         },
         {
             "position": 0,
-            "comment": "Big Muff Off",
+            "comment": "Muff Off",
             "type": "midi",
             "parameters": {
                 "type": "control_change",
@@ -80,7 +80,7 @@
         },
         {
             "position": 0,
-            "comment": "EQ Lead",
+            "comment": "EQ Gen",
             "type": "midi",
             "parameters": {
                 "type": "program_change",

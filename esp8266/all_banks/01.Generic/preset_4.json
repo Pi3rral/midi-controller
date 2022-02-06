@@ -1,7 +1,7 @@
 {
-    "position": 3,
-    "comment": "Sovereign + Reverb + EQ Lead",
-    "name": "Lead",
+    "position": 4,
+    "name": "Muff",
+    "comment": "Big Muff + Reverb",
     "actions": [
         {
             "position": 0,
@@ -38,24 +38,24 @@
         },
         {
             "position": 0,
-            "comment": "Big Muff Off",
+            "comment": "Muff On",
             "type": "midi",
             "parameters": {
                 "type": "control_change",
                 "channel": "7",
                 "control": "10",
-                "value": "0"
+                "value": "1"
             }
         },
         {
             "position": 0,
-            "comment": "Sovereign On",
+            "comment": "Sovereign Off",
             "type": "midi",
             "parameters": {
                 "type": "control_change",
                 "channel": "8",
                 "control": "10",
-                "value": "1"
+                "value": "0"
             }
         },
         {
@@ -80,12 +80,12 @@
         },
         {
             "position": 0,
-            "comment": "EQ Lead",
+            "comment": "EQ Gen",
             "type": "midi",
             "parameters": {
                 "type": "program_change",
                 "channel": "2",
-                "patch": "2"
+                "patch": "1"
             }
         }
     ]

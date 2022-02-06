@@ -1,7 +1,7 @@
 {
-    "position": 4,
-    "comment": "Pantheon + Reverb + EQ Gen",
-    "name": "Panth",
+    "position": 2,
+    "comment": "Sovereign + Reverb + EQ Gen",
+    "name": "Sovrgn",
     "actions": [
         {
             "position": 0,
@@ -27,13 +27,13 @@
         },
         {
             "position": 0,
-            "comment": "Pantheon On",
+            "comment": "Pantheon Off",
             "type": "midi",
             "parameters": {
                 "type": "control_change",
                 "channel": "5",
                 "control": "10",
-                "value": "1"
+                "value": "0"
             }
         },
         {
@@ -45,6 +45,17 @@
                 "channel": "7",
                 "control": "10",
                 "value": "0"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "Sovereign On",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "8",
+                "control": "10",
+                "value": "1"
             }
         },
         {
