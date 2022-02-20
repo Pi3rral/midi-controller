@@ -1,6 +1,6 @@
 {
     "position": 5,
-    "name": "Lead",
+    "name": "Lead-S",
     "comment": "Sovereign + EQ Lead",
     "actions": [
         {
@@ -80,7 +80,7 @@
         },
         {
             "position": 0,
-            "comment": "EQ Gen",
+            "comment": "EQ Lead",
             "type": "midi",
             "parameters": {
                 "type": "program_change",

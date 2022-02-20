@@ -14,7 +14,7 @@ class Bank:
 
     DEFAULT_BANKS_DIRECTORY = "/banks_dir"
     NB_PHYSICAL_BUTTONS = 6
-    NB_PAGES = 2
+    NB_PAGES = 1
 
     def __init__(self, banks_directory=None):
         self.is_loaded = False
