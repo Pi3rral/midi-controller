@@ -1,0 +1,18 @@
+{
+    "position": 3,
+    "comment": "Shimmer Off",
+    "name": "Sh-Off",
+    "actions": [
+        {
+            "position": 0,
+            "comment": "Shimmer Off",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "4",
+                "control": "101",
+                "value": "50"
+            }
+        }
+    ]
+}
