@@ -1,7 +1,7 @@
 {
-    "position": 0,
-    "comment": "Plumes + Pantheon + Reverb + EQ Gen",
-    "name": "Main",
+    "position": 2,
+    "comment": "Sovereign + Reverb",
+    "name": "Sovrgn",
     "actions": [
         {
             "position": 0,
@@ -16,35 +16,46 @@
         },
         {
             "position": 0,
-            "comment": "Plumes On",
+            "comment": "Plumes Off",
             "type": "midi",
             "parameters": {
                 "type": "control_change",
                 "channel": "6",
                 "control": "10",
-                "value": "1"
+                "value": "0"
             }
         },
         {
             "position": 0,
-            "comment": "Pantheon On",
+            "comment": "Pantheon Off",
             "type": "midi",
             "parameters": {
                 "type": "control_change",
                 "channel": "5",
                 "control": "10",
-                "value": "1"
+                "value": "0"
             }
         },
         {
             "position": 0,
-            "comment": "Big Muff Off",
+            "comment": "Muff Off",
             "type": "midi",
             "parameters": {
                 "type": "control_change",
                 "channel": "7",
                 "control": "10",
                 "value": "0"
+            }
+        },
+        {
+            "position": 0,
+            "comment": "Sovereign On",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "8",
+                "control": "10",
+                "value": "1"
             }
         },
         {
