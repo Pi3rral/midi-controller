@@ -46,7 +46,8 @@ class PrintLcd(LcdApi):
 class ControllerTest(Controller):
     def __init__(self):
         self.bank = Bank(
-            banks_directory="/Users/pleca/Documents/midi-controller/esp8266/banks_dir"
+            banks_directory="/Users/pleca/Documents/midi-controller/esp8266/banks_existenza",
+            presets_directory="/Users/pleca/Documents/midi-controller/esp8266/presets",
         )
         self.lcd = PrintLcd()
         self.print_menu()

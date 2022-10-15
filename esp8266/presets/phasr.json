@@ -1,14 +1,13 @@
 {
-    "position": 3,
-    "name": "DL+RV",
+    "name": "PHASR",
     "actions": [
         {
             "position": 0,
             "type": "midi",
             "parameters": {
                 "type": "program_change",
-                "channel": "4",
-                "patch": "2"
+                "channel": "1",
+                "patch": "1"
             }
         }
     ]

@@ -1,1 +1,15 @@
-{"position": 6, "name": "UVIBE", "actions": [{"position": 0, "type": "midi", "parameters": {"type": "program_change", "channel": "1", "patch": "3"}}]}
+{
+    "position": 6,
+    "name": "UVIBE",
+    "actions": [
+        {
+            "position": 0,
+            "type": "midi",
+            "parameters": {
+                "type": "program_change",
+                "channel": "1",
+                "patch": "3"
+            }
+        }
+    ]
+}

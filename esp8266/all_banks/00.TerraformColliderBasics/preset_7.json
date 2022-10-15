@@ -1,1 +1,15 @@
-{"position": 7, "name": "FLANG", "actions": [{"position": 0, "type": "midi", "parameters": {"type": "program_change", "channel": "1", "patch": "2"}}]}
+{
+    "position": 7,
+    "name": "FLANG",
+    "actions": [
+        {
+            "position": 0,
+            "type": "midi",
+            "parameters": {
+                "type": "program_change",
+                "channel": "1",
+                "patch": "2"
+            }
+        }
+    ]
+}

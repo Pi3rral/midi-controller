@@ -1,1 +1,15 @@
-{"position": 8, "name": "TREM", "actions": [{"position": 0, "type": "midi", "parameters": {"type": "program_change", "channel": "1", "patch": "6"}}]}
+{
+    "position": 8,
+    "name": "TREM",
+    "actions": [
+        {
+            "position": 0,
+            "type": "midi",
+            "parameters": {
+                "type": "program_change",
+                "channel": "1",
+                "patch": "6"
+            }
+        }
+    ]
+}
