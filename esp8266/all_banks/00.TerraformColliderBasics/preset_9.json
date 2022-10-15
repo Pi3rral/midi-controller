@@ -1,1 +1,15 @@
-{"position": 9, "name": "CHR-2", "actions": [{"position": 0, "type": "midi", "parameters": {"type": "program_change", "channel": "1", "patch": "7"}}]}
+{
+    "position": 9,
+    "name": "CHR-2",
+    "actions": [
+        {
+            "position": 0,
+            "type": "midi",
+            "parameters": {
+                "type": "program_change",
+                "channel": "1",
+                "patch": "7"
+            }
+        }
+    ]
+}

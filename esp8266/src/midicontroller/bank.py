@@ -12,11 +12,15 @@ from .preset import Preset
 
 class Bank:
 
-    DEFAULT_BANKS_DIRECTORY = "/banks_dir"
+    DEFAULT_BANKS_DIRECTORY = "/banks"
+    DEFAULT_PRESETS_DIRECTORY = "/presets"
+    VERSION_V1 = "v1"
+    VERSION_V2 = "v2"
+    DEFAULT_VERSION = VERSION_V1
     NB_PHYSICAL_BUTTONS = 6
     NB_PAGES = 2
 
-    def __init__(self, banks_directory=None):
+    def __init__(self, banks_directory=None, presets_directory=None):
         self.is_loaded = False
         self.load_error = ""
         self.max_bank = 0
@@ -28,6 +32,7 @@ class Bank:
         self.presets_name = []
         self.name = None
         self.banks_directory = banks_directory or self.DEFAULT_BANKS_DIRECTORY
+        self.presets_directory = presets_directory or self.DEFAULT_PRESETS_DIRECTORY
         self.set_banks()
         self.load_bank()
 
@@ -55,14 +60,18 @@ class Bank:
         self.load_bank()
 
     def load_bank(self):
-        self.load_bank_v1_dir()
-
-    def load_bank_v1_dir(self):
         bank_dir = self.banks_directory + "/" + self.banks[self.current_bank]
-        nb_preset = len(uos.listdir(bank_dir)) - 1
         with open(bank_dir + "/bank.json") as fp:
             bank_data = ujson.load(fp)
         self.name = bank_data.get("name")
+        version = bank_data.get("version", self.DEFAULT_VERSION)
+        if version == self.VERSION_V2:
+            self.load_bank_v2_dir(bank_dir, bank_data)
+        else:
+            self.load_bank_v1_dir(bank_dir, bank_data)
+
+    def load_bank_v1_dir(self, bank_dir, bank_data):
+        nb_preset = len(uos.listdir(bank_dir)) - 1
         self.current_page = 0
         self.presets = []
         for i in range(0, nb_preset):
