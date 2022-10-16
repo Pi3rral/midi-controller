@@ -29,6 +29,7 @@ Building in docker image:
 
 ```shell
 docker build -f firmware/Dockerfile -t midigoat .
+docker run --rm -ti --volume $PWD/firmware:/root/export midigoat /bin/bash -c "cp /micropython/ports/esp32/build-GENERIC/firmware.bin /root/export/esp32-generic-midigoat.bin"
 ```
 
 Firmware is located in the image at `/micropython/ports/esp32/build-GENERIC/firmware.bin`
