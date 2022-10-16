@@ -18,6 +18,13 @@ pip install -r requirements.txt
 
 ### Flash firmware
 
+Erase and Flash in one command.
+
+```shell
+python -m esptool --port /dev/tty.usbserial-1430 --baud 460800 write_flash --erase-all --flash_size=detect 0 firmware/esp32-generic-midigoat.bin
+```
+
+Or Erase first, then flash
 ```shell
 python -m esptool --port /dev/tty.usbserial-1430 erase_flash
 python -m esptool --port /dev/tty.usbserial-1430 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210902-v1.17.bin

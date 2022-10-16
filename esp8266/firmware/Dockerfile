@@ -22,10 +22,13 @@ RUN git clone -b ${MICROPYTHON_VERSION} https://github.com/micropython/micropyth
 WORKDIR ${MICROPYTHON_DIR}
 
 RUN source tools/ci.sh && ci_esp32_idf44_setup
+# build vanilla first to re-use docker layer
+RUN source tools/ci.sh && ci_esp32_build
 
 COPY src/midicontroller ${MICROPYTHON_DIR}/ports/esp32/modules/
 COPY src/webserver ${MICROPYTHON_DIR}/ports/esp32/modules/
 COPY src/wifi.py ${MICROPYTHON_DIR}/ports/esp32/modules/
 COPY src/main.py ${MICROPYTHON_DIR}/ports/esp32/modules/boot.py
 
+# build with custom code
 RUN source tools/ci.sh && ci_esp32_build
