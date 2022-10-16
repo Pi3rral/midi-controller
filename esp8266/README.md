@@ -23,6 +23,16 @@ python -m esptool --port /dev/tty.usbserial-1430 erase_flash
 python -m esptool --port /dev/tty.usbserial-1430 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210902-v1.17.bin
 ```
 
+#### Build Firmware
+
+Building in docker image:
+
+```shell
+docker build -f firmware/Dockerfile -t midigoat .
+```
+
+Firmware is located in the image at `/micropython/ports/esp32/build-GENERIC/firmware.bin`
+
 ### Test live
 
 ```shell
