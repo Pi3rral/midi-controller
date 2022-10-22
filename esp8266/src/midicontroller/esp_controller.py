@@ -77,8 +77,8 @@ class ESP32Controller(ESP8266Controller):
     pin_sda = 21
     lcd_address = 0x27
 
-    def read_buttons(self):
-        return False
+    # def read_buttons(self):
+    #     return False
 
 
 # class ESP8266ControllerAsyncio(ESP8266Controller):

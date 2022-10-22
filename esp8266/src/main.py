@@ -3,37 +3,6 @@ try:
 except ImportError:
     import asyncio
 
-import wifi
-from midicontroller.esp_controller_asyncio import midi_controller
+from midicontroller import app
 
-from webserver import web
-
-start_webserver = False
-
-# if midi_controller.read_buttons():
-#     start_webserver = True
-
-# if start_webserver:
-#     address = wifi.connect_home_wifi()
-#     midi_controller.splash_screen(address, 3)
-
-
-async def midicontroller():
-    while True:
-        midi_controller.loop()
-        await asyncio.sleep(0.005)
-
-
-async def webserver():
-    await web.start_server(debug=True)
-
-
-async def main():
-    asyncio.create_task(midicontroller())
-    if start_webserver:
-        asyncio.create_task(webserver())
-    while True:
-        await asyncio.sleep(10)
-
-
-asyncio.run(main())
+asyncio.run(app.main())

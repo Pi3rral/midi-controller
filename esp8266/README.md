@@ -18,13 +18,15 @@ pip install -r requirements.txt
 
 ### Flash firmware
 
-Erase and Flash in one command.
+Erase and flash on ESP32 (option to erase at the same time is not working)
+WARNING: Using more recent firmware (or custom) is not working yet
 
 ```shell
-python -m esptool --port /dev/tty.usbserial-1430 --baud 460800 write_flash --erase-all --flash_size=detect 0 firmware/esp32-generic-midigoat.bin
+python -m esptool --port /dev/tty.usbserial-1430 erase_flash
+python -m esptool --port /dev/tty.usbserial-0001 --chip esp32 --baud 460800 write_flash -z 0x1000 firmware/esp32-20210902-v1.17.bin
 ```
 
-Or Erase first, then flash
+Erase and flash on ESP8266
 ```shell
 python -m esptool --port /dev/tty.usbserial-1430 erase_flash
 python -m esptool --port /dev/tty.usbserial-1430 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210902-v1.17.bin
@@ -60,6 +62,16 @@ ampy --port /dev/tty.usbserial-1430 put src/wifi.py /wifi.py
 ampy --port /dev/tty.usbserial-1430 put src/midicontroller /midicontroller
 ampy --port /dev/tty.usbserial-1430 put banks_dir /banks_dir
 ampy --port /dev/tty.usbserial-1430 put src/main.py /main.py
+```
+
+or from the rshell
+
+```
+rsync presets /pyboard/presets
+rsync banks_existenza /pyboard/banks
+rsync src/midicontroller /pyboard/midicontroller
+cp src/wifi.py /pyboard/
+cp src/main.py /pyboard/
 ```
 
 ### Connect to REPL

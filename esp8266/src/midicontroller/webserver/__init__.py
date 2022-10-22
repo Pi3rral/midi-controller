@@ -1,8 +1,9 @@
 from .microdot_asyncio import Microdot, Response
 
-from midicontroller.esp_controller_asyncio import midi_controller
-
-# from midicontroller.controller_test import midi_controller_test as midi_controller
+try:
+    from midicontroller.esp_controller_asyncio import midi_controller
+except:
+    from midicontroller.controller_test import midi_controller_test as midi_controller
 
 
 web = Microdot()

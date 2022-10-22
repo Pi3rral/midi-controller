@@ -88,6 +88,33 @@ class Bank:
         self.load_error = ""
         gc.collect()
 
+    def load_bank_v2_dir(self, bank_dir, bank_data):
+        self.current_page = 0
+        self.presets = []
+        bank_presets = bank_data["presets"]
+        for i in range(0, len(bank_presets)):
+            gc.collect()
+            if bank_presets[i]["type"] == "preset":
+                preset_file = (
+                    self.presets_directory + "/" + bank_presets[i]["name"] + ".json"
+                )
+            else:
+                preset_file = bank_dir + "/preset_" + str(i) + ".json"
+            with open(preset_file) as fp:
+                preset_data = ujson.load(fp)
+            self.presets.append(
+                Preset(preset_data.get("name"), preset_data.get("actions"))
+            )
+        for _ in range(len(self.presets), self.NB_PAGES * self.NB_PHYSICAL_BUTTONS):
+            self.presets.append(Preset("NONE", []))
+        self.presets_name = [preset.get_name() for preset in self.presets]
+        self.is_loaded = True
+        self.load_error = ""
+        on_load_preset = bank_data.get("on_load_preset", None)
+        if on_load_preset is not None:
+            self.button_pressed(on_load_preset)
+        gc.collect()
+
     def get_bank_info(self, bank_number):
         if bank_number <= 0 or bank_number > self.max_bank:
             raise Exception(
