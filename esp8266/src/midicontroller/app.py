@@ -25,8 +25,8 @@ async def main():
     asyncio.create_task(midicontroller())
 
     # Start webserver at start if any button is pressed
-    if midi_controller.read_buttons():
-        # if False:
+    # if midi_controller.read_buttons():
+    if False:
         print("Start Web Server")
         address = wifi.connect_home_wifi()
         midi_controller.splash_screen(address, 3)

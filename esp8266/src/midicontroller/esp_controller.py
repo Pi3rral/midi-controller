@@ -3,7 +3,7 @@ from machine import Pin, SoftI2C
 from .controller import Controller
 from .bank import Bank
 from .lcd.esp8266_i2c_lcd import I2cLcd
-from .midi.ports import ESP8266TXPort
+from .midi.ports import ESP32TXPort
 from .midi.adafruit_midi import MIDI
 from .midi import MidiPort
 
@@ -28,7 +28,7 @@ class ESPController(Controller):
         self.clk_pin.value(0)
 
         # init midi
-        midi_port = ESP8266TXPort(enable_tx0=False, enable_tx1=True)
+        midi_port = ESP32TXPort(enable_tx0=False, enable_tx1=False, enable_tx2=True)
         midi = MIDI(midi_out=midi_port)
         MidiPort.midi_object = midi
 
@@ -75,7 +75,9 @@ class ESP8266Controller(ESPController):
 class ESP32Controller(ESP8266Controller):
     pin_scl = 22
     pin_sda = 21
-    lcd_address = 0x27
+    # WARNING! 0x27 is the breadbord address
+    # Comment out this line for actual pedal
+    # lcd_address = 0x27
 
     # def read_buttons(self):
     #     return False
