@@ -1,0 +1,396 @@
+{
+    "name": "Generic",
+    "version": "v1",
+    "presets": [
+        {
+            "position": 0,
+            "comment": "Clean + Reverb",
+            "name": "Clean",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Plumes Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "4",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 1,
+            "comment": "Pantheon + Reverb",
+            "name": "Panth",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Plumes Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "4",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 2,
+            "comment": "Pantheon + Plumes + Reverb",
+            "name": "Panth+",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Plumes On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "4",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 3,
+            "comment": "Plumes + Reverb",
+            "name": "Plumes",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Plumes On",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "1"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "4",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 4,
+            "name": "Muff",
+            "comment": "Big Muff + Reverb",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Plumes Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "4",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 5,
+            "name": "Fork",
+            "comment": "Pitch Fork + Reverb",
+            "actions": [
+                {
+                    "position": 0,
+                    "comment": "Plumes Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "6",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Pantheon Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "control_change",
+                        "channel": "5",
+                        "control": "10",
+                        "value": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Reverb",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "4",
+                        "patch": "0"
+                    }
+                },
+                {
+                    "position": 0,
+                    "comment": "Terraform Off",
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 6,
+            "name": "PHASER",
+            "comment": "Phaser",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "1"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 7,
+            "name": "CHORUS",
+            "comment": "Chorus",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "5"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 8,
+            "name": "TF-OFF",
+            "comment": "Terraform Off",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "9"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 9,
+            "name": "U-VIBE",
+            "comment": "Univibe",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "3"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 10,
+            "name": "FLANGE",
+            "comment": "Flanger",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "2"
+                    }
+                }
+            ]
+        },
+        {
+            "position": 11,
+            "name": "TREMO",
+            "comment": "Tremolo",
+            "actions": [
+                {
+                    "position": 0,
+                    "type": "midi",
+                    "parameters": {
+                        "type": "program_change",
+                        "channel": "1",
+                        "patch": "6"
+                    }
+                }
+            ]
+        }
+    ]
+}
