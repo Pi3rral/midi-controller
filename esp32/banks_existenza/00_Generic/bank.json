@@ -1,0 +1,39 @@
+{
+    "name": "Generic",
+    "version": "v2",
+    "on_load_preset": 0,
+    "presets": [
+        {
+            "type": "preset",
+            "name": "clean"
+        },
+        {
+            "type": "preset",
+            "name": "panth"
+        },
+        {
+            "type": "preset",
+            "name": "plumes"
+        },
+        {
+            "type": "preset",
+            "name": "muff"
+        },
+        {
+            "type": "preset",
+            "name": "sovrgn"
+        },
+        {
+            "type": "preset",
+            "name": "solo-p"
+        },
+        {
+            "type": "preset",
+            "name": "chrus"
+        },
+        {
+            "type": "preset",
+            "name": "phasr"
+        }
+    ]
+}
