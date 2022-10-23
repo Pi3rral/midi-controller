@@ -1,11 +1,10 @@
-# Using Micropython on ESP8266 Nodemcu v3 board
+# Using Micropython on ESP32 DevKit board
 
 ## Tools
 
 ### Useful Links
 
-https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
-https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html
+https://docs.micropython.org/en/latest/esp32/quickref.html
 https://www.digikey.ca/en/maker/projects/micropython-basics-load-files-run-code/fb1fcedaf11e4547943abfdd8ad825ce
 
 ### Local Virtualenv
@@ -22,14 +21,8 @@ Erase and flash on ESP32 (option to erase at the same time is not working)
 WARNING: Using more recent firmware (or custom) is not working yet
 
 ```shell
-python -m esptool --port /dev/tty.usbserial-1430 erase_flash
+python -m esptool --port /dev/tty.usbserial-0001 erase_flash
 python -m esptool --port /dev/tty.usbserial-0001 --chip esp32 --baud 460800 write_flash -z 0x1000 firmware/esp32-20210902-v1.17.bin
-```
-
-Erase and flash on ESP8266
-```shell
-python -m esptool --port /dev/tty.usbserial-1430 erase_flash
-python -m esptool --port /dev/tty.usbserial-1430 --baud 460800 write_flash --flash_size=detect 0 firmware/esp8266-20210902-v1.17.bin
 ```
 
 #### Build Firmware
@@ -46,7 +39,7 @@ Firmware is located in the image at `/micropython/ports/esp32/build-GENERIC/firm
 ### Test live
 
 ```shell
-ampy --port /dev/tty.usbserial-1430 run src/main.py
+ampy --port /dev/tty.usbserial-0001 run src/main.py
 ```
 
 ### Upload file
@@ -58,10 +51,10 @@ find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 ```
 
 ```shell
-ampy --port /dev/tty.usbserial-1430 put src/wifi.py /wifi.py
-ampy --port /dev/tty.usbserial-1430 put src/midicontroller /midicontroller
-ampy --port /dev/tty.usbserial-1430 put banks_dir /banks_dir
-ampy --port /dev/tty.usbserial-1430 put src/main.py /main.py
+ampy --port /dev/tty.usbserial-0001 put src/wifi.py /wifi.py
+ampy --port /dev/tty.usbserial-0001 put src/midicontroller /midicontroller
+ampy --port /dev/tty.usbserial-0001 put banks_dir /banks_dir
+ampy --port /dev/tty.usbserial-0001 put src/main.py /main.py
 ```
 
 or from the rshell
@@ -79,14 +72,14 @@ cp src/main.py /pyboard/
 #### Using `screen`
 
 ```shell
-screen /dev/tty.usbserial-1430 115200
+screen /dev/tty.usbserial-0001 115200
 ```
 exit with `Ctrl-A; Ctrl-\`
 
 #### Using `rshell`
 
 ```shell
-rshell -p /dev/tty.usbserial-1430
+rshell -p /dev/tty.usbserial-0001
 ```
 exit with `Ctrl-D`
 
