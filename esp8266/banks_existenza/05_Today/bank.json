@@ -1,5 +1,5 @@
 {
-    "name": "The One I Love",
+    "name": "Today",
     "version": "v2",
     "on_load_preset": 0,
     "presets": [
@@ -9,19 +9,19 @@
         },
         {
             "type": "preset",
-            "name": "plumes"
+            "name": "muff"
         },
         {
             "type": "preset",
-            "name": "lead-p"
+            "name": "muff-plu"
         },
         {
             "type": "preset",
-            "name": "cl-pha"
+            "name": "muff-plu-pha"
         },
         {
             "type": "preset",
-            "name": "panth"
+            "name": "sovrgn"
         },
         {
             "type": "preset",

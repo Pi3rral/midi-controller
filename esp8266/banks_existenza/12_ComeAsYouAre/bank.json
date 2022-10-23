@@ -1,5 +1,5 @@
 {
-    "name": "The One I Love",
+    "name": "Cant Stop",
     "version": "v2",
     "on_load_preset": 0,
     "presets": [
@@ -9,15 +9,11 @@
         },
         {
             "type": "preset",
-            "name": "plumes"
+            "name": "chrus"
         },
         {
             "type": "preset",
-            "name": "lead-p"
-        },
-        {
-            "type": "preset",
-            "name": "cl-pha"
+            "name": "solo-p"
         },
         {
             "type": "preset",
@@ -25,7 +21,11 @@
         },
         {
             "type": "preset",
-            "name": "solo-p"
+            "name": "lead-p"
+        },
+        {
+            "type": "preset",
+            "name": "solo-panth-chorus"
         }
     ]
 }

@@ -1,5 +1,5 @@
 {
-    "name": "The One I Love",
+    "name": "Man In The Box",
     "version": "v2",
     "on_load_preset": 0,
     "presets": [
@@ -9,7 +9,7 @@
         },
         {
             "type": "preset",
-            "name": "plumes"
+            "name": "panth"
         },
         {
             "type": "preset",
@@ -17,11 +17,11 @@
         },
         {
             "type": "preset",
-            "name": "cl-pha"
+            "name": "panth"
         },
         {
             "type": "preset",
-            "name": "panth"
+            "name": "sovrgn"
         },
         {
             "type": "preset",
