@@ -37,8 +37,11 @@ class Bank:
         self.load_bank()
 
     def set_banks(self):
-        self.banks = sorted(uos.listdir(self.banks_directory))
-        self.max_bank = len(self.banks)
+        try:
+            self.banks = sorted(uos.listdir(self.banks_directory))
+            self.max_bank = len(self.banks)
+        except:
+            pass
 
     def swap_page(self):
         self.current_page = (self.current_page + 1) % self.NB_PAGES
@@ -60,6 +63,9 @@ class Bank:
         self.load_bank()
 
     def load_bank(self):
+        if self.max_bank == 0:
+            self.load_error = "No Banks Available"
+            return
         bank_dir = self.banks_directory + "/" + self.banks[self.current_bank]
         with open(bank_dir + "/bank.json") as fp:
             bank_data = ujson.load(fp)

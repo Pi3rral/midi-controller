@@ -50,14 +50,7 @@ Don't forget to remove `pyc` files!
 find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 ```
 
-```shell
-ampy --port /dev/tty.usbserial-0001 put src/wifi.py /wifi.py
-ampy --port /dev/tty.usbserial-0001 put src/midicontroller /midicontroller
-ampy --port /dev/tty.usbserial-0001 put banks_dir /banks_dir
-ampy --port /dev/tty.usbserial-0001 put src/main.py /main.py
-```
-
-or from the rshell
+from rshell
 
 ```
 rsync presets /pyboard/presets

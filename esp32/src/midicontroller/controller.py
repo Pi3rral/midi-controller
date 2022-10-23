@@ -29,8 +29,9 @@ class Controller:
             return
         if not self.bank.is_loaded:
             self.lcd.clear()
-            self.lcd.move_to(0, 0)
-            self.lcd.putstr("Error Loading Bank " + str(self.bank.current_bank))
+            if self.bank.max_bank > 0:
+                self.lcd.move_to(0, 0)
+                self.lcd.putstr("Error Loading Bank " + str(self.bank.current_bank))
             self.lcd.move_to(0, 1)
             self.lcd.putstr(self.bank.load_error)
             return

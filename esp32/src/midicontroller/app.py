@@ -36,6 +36,3 @@ async def main():
     print("Start Infinite Loop")
     while True:
         await asyncio.sleep(10)
-
-
-# asyncio.run(main())
