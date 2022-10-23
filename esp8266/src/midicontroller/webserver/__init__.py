@@ -41,11 +41,11 @@ async def get_bank_info(request, bank_number):
         return Response(body=str(e), status_code=404)
 
 
-@web.route("/bank_info/<int:bank_number>/preset_info/<int:preset_number>")
-async def get_preset_info(request, bank_number, preset_number):
+@web.route("/preset_info/<string:preset_name>")
+async def get_preset_info(request, preset_name):
     try:
         return Response(
-            body=midi_controller.bank.get_preset_info(bank_number, preset_number),
+            body=midi_controller.bank.get_preset_info(preset_name),
             status_code=200,
         )
     except Exception as e:
