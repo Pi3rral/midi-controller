@@ -1,8 +1,4 @@
-try:
-    import uasyncio as asyncio
-except ImportError:
-    import asyncio
-
+import uasyncio as asyncio
 from midicontroller import app
 
 asyncio.run(app.main())

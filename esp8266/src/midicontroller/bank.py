@@ -92,18 +92,22 @@ class Bank:
         self.current_page = 0
         self.presets = []
         bank_presets = bank_data["presets"]
+        display_name = None
         for i in range(0, len(bank_presets)):
             gc.collect()
             if bank_presets[i]["type"] == "preset":
                 preset_file = (
                     self.presets_directory + "/" + bank_presets[i]["name"] + ".json"
                 )
+                display_name = bank_presets[i].get("display_name")
             else:
                 preset_file = bank_dir + "/preset_" + str(i) + ".json"
             with open(preset_file) as fp:
                 preset_data = ujson.load(fp)
             self.presets.append(
-                Preset(preset_data.get("name"), preset_data.get("actions"))
+                Preset(
+                    display_name or preset_data.get("name"), preset_data.get("actions")
+                )
             )
         for _ in range(len(self.presets), self.NB_PAGES * self.NB_PHYSICAL_BUTTONS):
             self.presets.append(Preset("NONE", []))
@@ -126,18 +130,8 @@ class Bank:
         bank_data["nb_preset"] = len(uos.listdir(bank_dir)) - 1
         return bank_data
 
-    def get_preset_info(self, bank_number, preset_number):
-        if bank_number <= 0 or bank_number > self.max_bank:
-            raise Exception(
-                "Invalid Bank Number. Must be between 1 and {}".format(self.max_bank)
-            )
-        bank_dir = self.banks_directory + "/" + self.banks[bank_number - 1]
-        nb_preset = len(uos.listdir(bank_dir)) - 1
-        if preset_number <= 0 or preset_number > nb_preset:
-            raise Exception(
-                "Invalid Preset Number. Must be between 1 and {}".format(nb_preset)
-            )
-        with open(bank_dir + "/preset_" + str(preset_number - 1) + ".json") as fp:
+    def get_preset_info(self, preset_name):
+        with open(self.presets_directory + "/" + preset_name + ".json") as fp:
             preset_data = ujson.load(fp)
         return preset_data
 

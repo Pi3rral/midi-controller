@@ -4,10 +4,10 @@ except ImportError:
     import asyncio
 
 
-from .esp_controller import ESPController, ESP32Controller
+from .esp_controller import ESPController
 
 
-class ESPControllerAsync(ESPController):
+class ESP32ControllerAsync(ESPController):
     async def wait_bounce(self):
         await asyncio.sleep(0.2)
 
@@ -18,10 +18,6 @@ class ESPControllerAsync(ESPController):
         while True:
             self.loop()
             await asyncio.sleep(0.004)
-
-
-class ESP32ControllerAsync(ESP32Controller, ESPControllerAsync):
-    pass
 
 
 midi_controller = ESP32ControllerAsync()

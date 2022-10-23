@@ -26,6 +26,14 @@
         {
             "type": "preset",
             "name": "solo-p"
+        },
+        {
+            "type": "preset",
+            "name": "chrus"
+        },
+        {
+            "type": "preset",
+            "name": "phasr"
         }
     ]
 }

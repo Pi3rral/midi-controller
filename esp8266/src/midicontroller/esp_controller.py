@@ -13,11 +13,15 @@ PULSE_WIDTH_USEC = 5
 
 class ESPController(Controller):
 
-    pin_scl = 5
-    pin_sda = 4
+    pin_scl = 22
+    pin_sda = 21
     pin_pl = 14
     pin_clk = 12
     pin_data = 13
+
+    # WARNING! 0x27 is the breadbord address
+    # actual pedal is 0x3F
+    # lcd_address = 0x27
     lcd_address = 0x3F
 
     def __init__(self):
@@ -60,34 +64,3 @@ class ESPController(Controller):
 
     def wait_bounce(self):
         sleep_ms(200)
-
-
-class ESP8266Controller(ESPController):
-
-    pin_scl = 5
-    pin_sda = 4
-    pin_pl = 14
-    pin_clk = 12
-    pin_data = 13
-    lcd_address = 0x3F
-
-
-class ESP32Controller(ESP8266Controller):
-    pin_scl = 22
-    pin_sda = 21
-    # WARNING! 0x27 is the breadbord address
-    # Comment out this line for actual pedal
-    # lcd_address = 0x27
-
-    # def read_buttons(self):
-    #     return False
-
-
-# class ESP8266ControllerAsyncio(ESP8266Controller):
-#     def wait_bounce(self):
-#         asyncio.sleep(0.2)
-
-#     async def main(self):
-#         while True:
-#             self.loop()
-#             await asyncio.sleep(0.01)
