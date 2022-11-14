@@ -1,0 +1,17 @@
+{
+    "name": "Pitch",
+    "comment": "Pitch",
+    "actions": [
+        {
+            "position": 0,
+            "comment": "Pitch Fork On",
+            "type": "midi",
+            "parameters": {
+                "type": "control_change",
+                "channel": "3",
+                "control": "10",
+                "value": "1"
+            }
+        }
+    ]
+}

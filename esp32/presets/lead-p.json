@@ -4,17 +4,6 @@
     "actions": [
         {
             "position": 0,
-            "comment": "Pitch Fork Off",
-            "type": "midi",
-            "parameters": {
-                "type": "control_change",
-                "channel": "3",
-                "control": "10",
-                "value": "0"
-            }
-        },
-        {
-            "position": 0,
             "comment": "Plumes On",
             "type": "midi",
             "parameters": {

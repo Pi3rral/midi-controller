@@ -39,7 +39,7 @@ class Bank:
     def set_banks(self):
         self.banks = sorted(uos.listdir(self.banks_directory))
         self.max_bank = len(self.banks)
-
+    
     def swap_page(self):
         self.current_page = (self.current_page + 1) % self.NB_PAGES
 
