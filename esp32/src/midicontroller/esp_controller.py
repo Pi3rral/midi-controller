@@ -6,9 +6,10 @@ from .lcd.esp8266_i2c_lcd import I2cLcd
 from .midi.ports import ESP32TXPort
 from .midi.adafruit_midi import MIDI
 from .midi import MidiPort
-
+from .env import Env
 
 PULSE_WIDTH_USEC = 5
+PEDAL_LCD_ADDRESS = 0x3F
 
 
 class ESPController(Controller):
@@ -22,7 +23,7 @@ class ESPController(Controller):
     # WARNING! 0x27 is the breadbord address
     # actual pedal is 0x3F
     # lcd_address = 0x27
-    lcd_address = 0x3F
+    # lcd_address = 0x3F
 
     def __init__(self):
         # init pins
@@ -30,6 +31,7 @@ class ESPController(Controller):
         self.clk_pin = Pin(self.pin_clk, Pin.OUT)
         self.data_pin = Pin(self.pin_data, Pin.IN)
         self.clk_pin.value(0)
+        self.lcd_address = Env.get("lcd_address", PEDAL_LCD_ADDRESS)
 
         # init midi
         midi_port = ESP32TXPort(enable_tx0=False, enable_tx1=False, enable_tx2=True)

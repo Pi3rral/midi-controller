@@ -12,7 +12,9 @@ RUN apt-get update \
     git \
     python3 \
     python3-pip \
-    libusb-1.0-0
+    libusb-1.0-0 \
+    libffi-dev \
+    pkg-config
 
 ARG MICROPYTHON_DIR=/micropython
 ARG MICROPYTHON_VERSION=v1.19.1
@@ -21,13 +23,13 @@ RUN git clone -b ${MICROPYTHON_VERSION} https://github.com/micropython/micropyth
 
 WORKDIR ${MICROPYTHON_DIR}
 
-RUN source tools/ci.sh && ci_esp32_idf44_setup
 # build vanilla first to re-use docker layer
 # RUN source tools/ci.sh && ci_esp32_build
 
-COPY src/midicontroller ${MICROPYTHON_DIR}/ports/esp32/modules/midicontroller
-COPY src/wifi.py ${MICROPYTHON_DIR}/ports/esp32/modules/
-# COPY src/main.py ${MICROPYTHON_DIR}/ports/esp32/modules/boot.py
+COPY src/midicontroller ${MICROPYTHON_DIR}/ports/unix/modules/midicontroller
+COPY src/wifi.py ${MICROPYTHON_DIR}/ports/unix/modules/
+# COPY src/main.py ${MICROPYTHON_DIR}/ports/unix/modules/boot.py
 
-# build with custom code
-# RUN source tools/ci.sh && ci_esp32_build
+# RUN source tools/ci.sh && ci_unix_standard_build
+WORKDIR ${MICROPYTHON_DIR}/ports/unix
+RUN make submodules && make 
