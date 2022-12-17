@@ -1,0 +1,6 @@
+{
+    "image": "micropython/unix:v1.19.1"
+    // "build": {
+    //     "dockerfile": "../tools/Dockerfile"
+    // }
+}
